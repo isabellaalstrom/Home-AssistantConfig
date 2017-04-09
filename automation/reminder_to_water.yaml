@@ -1,0 +1,15 @@
+  - alias: Remind me to water plants
+    trigger:
+      platform: state
+      entity_id: sensor.isa
+      from: 'not_home'
+      to: 'home'
+    condition:
+      condition: numeric_state
+      entity_id: sensor.monstera_moisture
+      below: 20
+    action:
+      service: notify.pushbullet_isa
+      data:
+        title: 'Vattna!'
+        message: 'Water Monstera!'

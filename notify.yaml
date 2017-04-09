@@ -1,0 +1,3 @@
+  - name: Pushbullet Isa
+    platform: pushbullet
+    api_key: !secret pushbullet_key

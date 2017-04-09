@@ -1,0 +1,59 @@
+###################################
+##  Set to evening               ##
+###################################
+
+- alias: 'House mode to evening'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-00:45:00'
+
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.house_mode
+        option: Evening
+    - service: notify.pushbullet
+      data_template: 
+        title: 'House mode to evening automation run'
+        message: "The house mode should be set to evening"
+
+###################################
+##  Set to morning               ##
+###################################
+
+- alias: 'House mode to morning'
+  trigger:
+    - platform: sun
+      event: sunrise
+
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.house_mode
+        option: Morning
+    - service: notify.pushbullet
+      data_template: 
+        title: 'House mode to morning automation run'
+        message: "The house mode should be set to morning"
+
+###################################
+##  Set to day                   ##
+###################################
+
+- alias: 'House mode to day'
+  trigger:
+    - platform: time
+      after: "08:00:00"
+
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.house_mode
+        option: Day
+    - service: notify.pushbullet
+      data_template: 
+        title: 'House mode to day automation run'
+        message: "The house mode should be set to day"
+
+## TODO: Set to night at input_boolean goodnight

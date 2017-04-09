@@ -1,0 +1,50 @@
+## https://home-assistant.io/docs/configuration/customizing-devices/
+
+    sensor.isa:
+      icon: mdi:human-female
+    sensor.stefan:
+      icon: mdi:human-male
+
+
+    group.all_automations:
+      hidden: true
+    media_player.sovrum:
+      friendly_name: Chromecast sovrum
+
+#########################################
+######            DEVICES          ######
+#########################################
+    device_tracker.0011325962fb:
+      hidden: true
+    device_tracker.204e7f4bf81b:
+      hidden: true
+    device_tracker.android8c0fc07d9694a5a2:
+      hidden: true
+    device_tracker.android8e3893d2d746d835:
+      hidden: true
+    device_tracker.chromecast:
+      hidden: true
+    device_tracker.grimsan55:
+      hidden: true
+    device_tracker.hp16eece:
+      hidden: true
+    device_tracker.isa:
+      hidden: true
+    device_tracker.paddan:
+      hidden: true
+    device_tracker.philipshue:
+      hidden: true
+    device_tracker.routerasuscom:
+      hidden: true
+    device_tracker.shield:
+      hidden: true
+    device_tracker.tivoe800d5bf09d5729:
+      hidden: true
+    device_tracker.0c89109204ff:
+      hidden: false
+    device_tracker.14bb6eceb76a:
+      hidden: false
+    device_tracker.90f1aac2077c:
+      hidden: false
+    media_player.shield:
+      hidden: true

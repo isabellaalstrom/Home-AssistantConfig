@@ -1,0 +1,12 @@
+  - platform: miflora
+    mac: "C4:7C:8D:60:A5:B3"
+    name: Monstera
+    median: 3
+    cache: 10800
+    force_update: true
+    monitored_conditions:
+      - temperature
+      - light
+      - moisture
+      - conductivity
+      - battery

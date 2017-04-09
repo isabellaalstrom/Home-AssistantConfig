@@ -1,0 +1,9 @@
+  house_mode:
+    name: House mode
+    options:
+     - Morning
+     - Day
+     - Evening
+     - Night
+    initial: Day
+    icon: mdi:house
