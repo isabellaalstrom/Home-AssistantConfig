@@ -1,0 +1,7 @@
+automations_view:
+  view: yes
+  icon: mdi:auto-upload
+  entities:
+    - automation.isa_away
+    - automation.isa_home
+    - automation.remind_me_to_water_plants

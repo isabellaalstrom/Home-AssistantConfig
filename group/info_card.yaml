@@ -1,0 +1,5 @@
+info_card:
+  name: Info
+  entities:
+  - sun.sun
+  - sensor.date__time

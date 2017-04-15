@@ -8,16 +8,23 @@ homeassistant:
   customize: !include customize.yaml
 #introduction:
 frontend:
+
 config:
 http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL or running in Docker etc
-  # base_url: 
+  base_url: http://grimsan.servebeer.com:8123/
 updater:
 discovery:
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
 history:
+
+influxdb:
+  host: 127.0.0.1
+  database: home_assistant
+  username: !secret influxdb_username
+  password: !secret influxdb_password
 
 logbook:
   exclude:
@@ -40,19 +47,25 @@ logbook:
       - sensor.dark_sky_pressure_1
       - sensor.dark_sky_wind_bearing_1
       - sensor.dark_sky_wind_speed_1
+      - sensor.since_last_boot
+      - sensor.ha_uptime
+      - sensor.yr_symbol
+      
 sun:
+
 tts:
   platform: google
 
 notify: !include notify.yaml
 
-group: !include groups.yaml
+group: !include_dir_merge_named group/
 
 rfxtrx:
   device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A14SREW-if00-port0
+  debug:
 
-zwave:
-  usb_path: /dev/ttyACM0
+#zwave:
+#  usb_path: /dev/ttyACM0
 
 mqtt:
   broker: !secret mqtt_broker
@@ -61,26 +74,28 @@ mqtt:
   username: !secret mqtt_username
   password: !secret mqtt_password
 
-#ffmpeg:
-#  ffmpeg_bin: /usr/bin/avconv
+ffmpeg:
+  ffmpeg_bin: /usr/bin/avconv
 
-#camera:
-#  - platform: ffmpeg
-#    name: Camera Sannce
-#    input: -rtsp_transport tcp -i rtsp://192.168.1.63:10554/tcp/av0_0
-#    extra_arguments: -pred 1
+camera:
+  - platform: ffmpeg
+    name: Camera Sannce
+    input: -rtsp_transport tcp -i rtsp://192.168.1.63:10554/tcp/av0_0
+    extra_arguments: -pred 1
 
 media_player:
   - platform: cast
   - platform: plex
     entity_namespace: 'plex'
     show_all_controls: true
+#  - platform: samsungtv
+#    name: Vilken tv
+#    host: !secret samsungtv1_host
   - platform: samsungtv
-    name: Vilken tv
-    host: !secret samsungtv1_host
-  - platform: samsungtv
-    name: en tv
+    name: Vardagsrums-tv
     host: !secret samsungtv2_host
+    port: 8001
+    mac: !secret samsungtv2_mac
 
 device_tracker:
   - platform: bluetooth_tracker
@@ -90,6 +105,13 @@ device_tracker:
   - platform: nmap_tracker
     hosts: !secret nmap_tracker_hosts
     home_interval: 10
+  - platform: owntracks
+
+zone:
+  name: LIA
+  latitude: 59.34
+  longitude: 18.03
+  icon: mdi:code-braces
 
 logger: !include logger.yaml
 sensor: !include_dir_merge_list sensor
@@ -99,4 +121,8 @@ switch: !include_dir_merge_list switch
 script: !include_dir_merge_named script
 input_boolean: !include_dir_merge_named input_boolean/
 input_select: !include_dir_merge_named input_select/
+binary_sensor:
+  - platform: ffmpeg_motion
+    input: rtsp://192.168.1.63:10554/tcp/av0_0
+    reset: 60
 #shell_command: !include_dir_merge_named shell_command

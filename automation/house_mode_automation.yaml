@@ -13,7 +13,7 @@
       data:
         entity_id: input_select.house_mode
         option: Evening
-    - service: notify.pushbullet
+    - service: notify.pushbullet_isa
       data_template: 
         title: 'House mode to evening automation run'
         message: "The house mode should be set to evening"
@@ -32,7 +32,7 @@
       data:
         entity_id: input_select.house_mode
         option: Morning
-    - service: notify.pushbullet
+    - service: notify.pushbullet_isa
       data_template: 
         title: 'House mode to morning automation run'
         message: "The house mode should be set to morning"
@@ -51,8 +51,8 @@
       data:
         entity_id: input_select.house_mode
         option: Day
-    - service: notify.pushbullet
-      data_template: 
+    - service: notify.pushbullet_isa
+      data: 
         title: 'House mode to day automation run'
         message: "The house mode should be set to day"
 

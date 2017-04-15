@@ -1,0 +1,4 @@
+camera_card:
+  entities:
+    - camera.camera_sannce
+    - binary_sensor.ffmpeg_motion

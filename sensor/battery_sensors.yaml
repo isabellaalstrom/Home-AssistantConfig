@@ -1,0 +1,5 @@
+  - platform: mqtt
+    state_topic: "owntracks/Isabella/isaowntracks"
+    name: "Isa's' iPhone battery"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.batt }}'

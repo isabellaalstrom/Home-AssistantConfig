@@ -1,0 +1,9 @@
+media_player_card:
+  view: yes
+  name: Media players
+  entities:
+    - media_player.plex_shield
+    - media_player.shield
+    - media_player.sovrum
+    - media_player.htse6730_hte6730
+    - media_player.big_fucking_tv_ue65hu8500

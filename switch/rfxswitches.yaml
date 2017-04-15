@@ -1,3 +1,6 @@
   - platform: rfxtrx
     automatic_add: True
     signal_repetitions: 3
+    devices:
+      0b11000525bc0cfe05010f70:
+        name: livingroom_standing_window

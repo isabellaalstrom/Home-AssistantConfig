@@ -1,0 +1,10 @@
+persons_card:
+  control: hidden
+  icon: mdi:human-male-female
+  entities:
+#  - input_boolean.stefan_home
+#  - input_boolean.isabella_home
+  - sensor.isa
+  - sensor.stefan
+  view: false
+  name: Personer

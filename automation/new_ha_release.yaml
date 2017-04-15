@@ -3,7 +3,7 @@
     - platform: state
       entity_id: updater.updater
   action:
-    service: notify.pushbullet
+    service: notify.pushbullet_isa
     data_template: 
       title: 'New Home Assistant Release'
       target: 'device/isadator'

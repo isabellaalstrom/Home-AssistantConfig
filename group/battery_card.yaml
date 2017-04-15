@@ -1,0 +1,4 @@
+battery_card:
+  name: Battery status
+  entities:
+  - sensor.battery_isa_phone
