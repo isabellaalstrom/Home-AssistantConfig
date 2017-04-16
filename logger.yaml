@@ -13,8 +13,9 @@ logs:
   homeassistant.components.device_tracker: error
   homeassistant.components.discovery: warn
   homeassistant.components.http: error
-  homeassistant.components.media_player: warn
+  homeassistant.components.media_player: error
   homeassistant.components.sensor.darksky: error
   homeassistant.components.zwave: info
+  homeassistant.components.rfxtrx: debug
   homeassistant.helpers.script: info
   root: warn

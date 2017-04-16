@@ -56,17 +56,18 @@
       hidden: true
       homebridge_hidden: true
     device_tracker.0c89109204ff:
-      hidden: false
+      hidden: true
       homebridge_hidden: true
     device_tracker.14bb6eceb76a:
-      hidden: false
+      hidden: true
       homebridge_hidden: true
     device_tracker.90f1aac2077c:
-      hidden: false
+      hidden: true
       homebridge_hidden: true
     device_tracker.00b06c1a907f:
       hidden: true
       homebridge_hidden: true
+      
 
 #########################################
 ######        MEDIA_PLAYERS        ######
@@ -75,6 +76,7 @@
       friendly_name: Chromecast Shield
     media_player.plex_shield:
       friendly_name: Plex Shield
+      icon: mdi:plex
     media_player.htse6730_hte6730:
       friendly_name: Hemmabiosystem
     media_player.big_fucking_tv_ue65hu8500:
@@ -86,6 +88,7 @@
 ######            SENSORS          ######
 #########################################
 
+## miflora
     sensor.monstera_battery:
       homebridge_hidden: true
     sensor.monstera_conductivity:
@@ -96,6 +99,20 @@
       homebridge_hidden: true
     sensor.monstera_temperature:
       homebridge_hidden: true
+
+## battery
+    sensor.isabellas_iphone_6s_battery_state:
+      icon: mdi:battery-charging
+      homebridge_hidden: true
+    sensor.isabellas_iphone_6s_battery_level:
+      icon: mdi:battery
+      homebridge_hidden: true
+    sensor.paddan_battery_level:
+      icon: mdi:battery
+    sensor.paddan_battery_state:
+      icon: mdi:battery-charging
+      #icon_template: '{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'
+
 
 #########################################
 ######           DEVICES           ######
@@ -145,3 +162,12 @@
     switch.__switch_2_0:
       hidden: true
       homebridge_hidden: true
+
+#########################################
+######             ZONE            ######
+#########################################
+
+    zone.home:
+      track_ios: true
+    zone.LIA:
+      track_ios: true

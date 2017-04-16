@@ -1,6 +1,14 @@
   - platform: rfxtrx
     automatic_add: True
-    signal_repetitions: 3
+    # signal_repetitions: 3
     devices:
-      0b11000525bc0cfe05010f70:
-        name: livingroom_standing_window
+      0b1100070009a56e01010f60:
+        name: Right button
+      0b1100080009a56e02010f60:
+        name: Left button
+      0b11000676bc0cfe01010f70:
+        name: Lampa
+      0b1100110153b33a0a010f70:
+        name: Motion sensor
+      0b11001f01539bda0a010f50:
+        name: Door
