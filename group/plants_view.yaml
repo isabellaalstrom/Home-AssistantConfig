@@ -1,0 +1,7 @@
+plants_view:
+  view: yes
+  name: Plants
+  icon: mdi:flower
+  entities:
+    - group.palm_card
+    - group.monstera_card

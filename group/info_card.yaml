@@ -3,3 +3,5 @@ info_card:
   entities:
   - sun.sun
   - sensor.date__time
+  - sensor.motion_sensor
+  - sensor.front_door

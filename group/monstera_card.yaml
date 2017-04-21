@@ -1,6 +1,5 @@
-plants_card:
-  icon: mdi:flower
-  name: Plants
+monstera_card:
+  name: Monstera
   entities:
   - sensor.monstera_moisture
   - sensor.monstera_light_intensity

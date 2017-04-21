@@ -1,0 +1,12 @@
+# Automation.     
+automation:
+  - alias: Livingroom Light - Adjust Brightness
+    trigger:
+      platform: state
+      entity_id: input_slider.livingroom_light_brightness
+    action:
+      - service: light.turn_on
+# Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable
+        data_template:
+          entity_id: light.vardagsrumslampa
+          brightness: '{{ trigger.to_state.state | int }}'

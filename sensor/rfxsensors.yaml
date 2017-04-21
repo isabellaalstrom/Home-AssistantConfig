@@ -1,5 +1,2 @@
   - platform: rfxtrx
-    automatic_add: True
-    # devices:
-    #   0b11008701539bda0a010f60:
-    #     name: front_door
+    # automatic_add: True

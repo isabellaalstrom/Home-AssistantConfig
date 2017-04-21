@@ -1,23 +1,26 @@
-  - platform: yr
-    monitored_conditions:
-      - temperature
-#      - symbol
-      - precipitation
-      - windSpeed
-#      - pressure
-#      - windDirection
-      - humidity
-      - fog
-      - cloudiness
-      - lowClouds
-      - mediumClouds
-      - highClouds
-#      - dewpointTemperature
+#   - platform: yr
+#     monitored_conditions:
+#       - temperature
+# #      - symbol
+#       - precipitation
+#       - windSpeed
+# #      - pressure
+# #      - windDirection
+#       - humidity
+#       - fog
+#       - cloudiness
+#       - lowClouds
+#       - mediumClouds
+#       - highClouds
+# #      - dewpointTemperature
 
   - platform: darksky
     api_key: !secret darksky_key
+    forecast:
+      - 1
     monitored_conditions:
   #    - summary
+      - precip_probability
       - precip_type
       - precip_intensity
       - precip_intensity_max
@@ -29,6 +32,13 @@
       - humidity
   #    - nearest_storm_distance
   #    - minutely_summary
+      - daily_summary
+      - hourly_summary
+      - apparent_temperature
+      - apparent_temperature_max
+      - apparent_temperature_min
+      - temperature_max
+      - temperature_min
   #    - pressure
   #    - visibility
   #    - ozone

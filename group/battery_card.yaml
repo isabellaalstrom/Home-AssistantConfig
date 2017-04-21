@@ -6,3 +6,4 @@ battery_card:
   - sensor.paddan_battery_level
   - sensor.paddan_battery_state
   - sensor.monstera_battery
+  - sensor.palm_battery

@@ -1,0 +1,9 @@
+  front_door:
+    name: "Ytterdörren är öppen"
+    entity_id: sensor.front_door
+    state: 'open'
+    repeat: 1
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - ios_isabellas_iphone_6s

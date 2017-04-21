@@ -1,0 +1,31 @@
+  - alias: Front door opened
+    trigger:
+      platform: state
+      entity_id: switch.door
+      from: 'off'
+      to: 'on'
+    action:
+      - service: notify.pushbullet_isa
+        data:
+          title: 'Ytterdörren är öppen'
+          message: 'Stäng dörren!'
+      - service: notify.ios_isabellas_iphone_6s
+        data:
+          title: 'Dörren är öppen'
+          message: ''
+
+  - alias: Front door closed
+    trigger:
+      platform: state
+      entity_id: switch.door
+      from: 'on'
+      to: 'off'
+    action:
+      - service: notify.pushbullet_isa
+        data:
+          title: 'Dörren är stängd'
+          message: ''
+      - service: notify.ios_isabellas_iphone_6s
+        data:
+          title: 'Dörren är stängd'
+          message: ''

@@ -1,0 +1,8 @@
+light_card:
+  name: Lights
+  entities:
+    - light.vardagsrumslampa
+    - switch.lampa
+    # - input_slider.livingroom_light_brightness
+    - light.kokslampa
+    - light.hallampa

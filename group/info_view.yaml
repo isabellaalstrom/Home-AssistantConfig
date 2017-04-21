@@ -1,9 +1,13 @@
-info_view:
+default_view:
   view: yes
   name: Information
+  icon: mdi:home-variant
   entities:
     - sensor.isa
     - sensor.stefan
     - group.info_card
-    #- group.persons_card
-    - group.weather_card
+    - group.weather_summary_today_card
+    - group.weather_summary_tomorrow_card
+    - group.light_card
+    - group.camera_card
+    - input_select.house_mode

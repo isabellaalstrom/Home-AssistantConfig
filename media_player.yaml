@@ -1,0 +1,12 @@
+  - platform: cast
+  - platform: plex
+    entity_namespace: 'plex'
+    show_all_controls: true
+#  - platform: samsungtv
+#    name: Vilken tv
+#    host: !secret samsungtv1_host
+  - platform: samsungtv
+    name: Vardagsrums-tv
+    host: !secret samsungtv2_host
+    port: 8001
+    mac: !secret samsungtv2_mac

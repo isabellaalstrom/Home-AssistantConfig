@@ -7,7 +7,17 @@ homeassistant:
   time_zone: !secret time_zone
   customize: !include customize.yaml
 #introduction:
+
 frontend:
+config:
+updater:
+discovery:
+# Allows you to issue voice commands from the frontend in enabled browsers
+#conversation:
+history:
+ios:
+sun:
+
 panel_iframe:
   grafana:
     title: "Grafana"
@@ -18,18 +28,10 @@ panel_iframe:
     icon: mdi:vector-square
     url: !secret mdi_index_url
 
-
-config:
 http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL or running in Docker etc
   base_url: !secret base_url
-updater:
-discovery:
-# Allows you to issue voice commands from the frontend in enabled browsers
-#conversation:
-history:
-ios:
 
 influxdb:
   host: 127.0.0.1
@@ -37,39 +39,8 @@ influxdb:
   username: !secret influxdb_username
   password: !secret influxdb_password
 
-logbook:
-  exclude:
-    entities:
-      - sensor.date__time
-      - sensor.dark_sky_summary
-      - sensor.dark_sky_temperature
-      - sensor.dark_sky_apparent_temperature
-      - sensor.dark_sky_humidity
-      - sensor.dark_sky_precip_intensity
-      - sensor.dark_sky_precip_probability
-      - sensor.dark_sky_nearest_storm_distance
-      - sensor.dark_sky_pressure
-      - sensor.dark_sky_wind_bearing
-      - sensor.dark_sky_wind_speed
-      - sensor.dark_sky_humidity_1
-      - sensor.dark_sky_precip_intensity_1
-      - sensor.dark_sky_precip_probability_1
-      - sensor.dark_sky_nearest_storm_distance
-      - sensor.dark_sky_pressure_1
-      - sensor.dark_sky_wind_bearing_1
-      - sensor.dark_sky_wind_speed_1
-      - sensor.since_last_boot
-      - sensor.ha_uptime
-      - sensor.yr_symbol
-      
-sun:
-
 tts:
   platform: google
-
-notify: !include notify.yaml
-
-group: !include_dir_merge_named group/
 
 rfxtrx:
   device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A14SREW-if00-port0
@@ -94,47 +65,42 @@ camera:
     input: !secret camera_input
     extra_arguments: -pred 1
 
-media_player:
-  - platform: cast
-  - platform: plex
-    entity_namespace: 'plex'
-    show_all_controls: true
-#  - platform: samsungtv
-#    name: Vilken tv
-#    host: !secret samsungtv1_host
-  - platform: samsungtv
-    name: Vardagsrums-tv
-    host: !secret samsungtv2_host
-    port: 8001
-    mac: !secret samsungtv2_mac
-
-device_tracker:
-  - platform: bluetooth_tracker
-    track_new_devices: True
-    interval_seconds: 20
-    consider_home: 360
-  - platform: nmap_tracker
-    hosts: !secret nmap_tracker_hosts
-    home_interval: 10
-  - platform: owntracks
-
 zone:
   name: LIA
   latitude: !secret lia_lat
   longitude: !secret lia_long
   icon: mdi:code-braces
 
-
+device_tracker: !include device_tracker.yaml
 logger: !include logger.yaml
+logbook: !include logbook.yaml
+notify: !include notify.yaml
+media_player: !include media_player.yaml
+alert: !include alert.yaml
+
 sensor: !include_dir_merge_list sensor
 automation: !include_dir_merge_list automation
 scene: !include_dir_merge_list scene
 switch: !include_dir_merge_list switch
 script: !include_dir_merge_named script
+group: !include_dir_merge_named group/
 input_boolean: !include_dir_merge_named input_boolean/
 input_select: !include_dir_merge_named input_select/
+# input_slider: !include_dir_merge_named input_slider/
 binary_sensor:
   - platform: ffmpeg_motion
     input: !secret ffmpeg_motion_input
     reset: 60
+
+## TEST AREA ##
+  # - platform: template 
+  #   sensors:
+  #     movement:
+  #       value_template: "{{ states.switch.motion_sensor.state == 'on' }}"
+  #       device_class: motion
+  #     door:
+  #       value_template: "{{ states.switch.door.state == 'on' }}" 
+  #       device_class: opening
 #shell_command: !include_dir_merge_named shell_command
+
+

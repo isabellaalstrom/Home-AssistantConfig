@@ -1,9 +1,11 @@
 media_player_card:
   view: yes
   name: Media players
+  icon: mdi:movie
   entities:
     - media_player.plex_shield
     - media_player.shield
-    - media_player.sovrum
     - media_player.htse6730_hte6730
-    - media_player.big_fucking_tv_ue65hu8500
+    - media_player.vardagsrumstv
+    - media_player.sovrum
+    - media_player._samsung_5_series_49_ue49k5505
