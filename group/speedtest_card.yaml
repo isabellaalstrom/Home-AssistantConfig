@@ -1,6 +1,6 @@
 speedtest_card:
   icon: mdi:clock-fast
-  name: Speedtest
+  name: Hastighetstest
   entities:
   - sensor.speedtest_ping
   - sensor.speedtest_download

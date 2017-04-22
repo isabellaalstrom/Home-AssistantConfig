@@ -1,0 +1,6 @@
+stefan:
+  name: Stefan
+  entities:
+    - device_tracker.stefansiphone
+    - device_tracker.iphone
+    - device_tracker.grimsan55

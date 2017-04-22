@@ -34,7 +34,7 @@
     - service: notify.ios_isabellas_iphone_6s
       data:
         title: 'Du är nu rapporterad som inte hemma.'
-        message: ''
+        message: 'test'
       
 
 ## Isa is set as home as soon as one of the phone-sensors is set as home

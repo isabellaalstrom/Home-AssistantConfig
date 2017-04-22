@@ -1,6 +1,6 @@
 weather_view:
   view: yes
-  name: Weather
+  name: Väder
   icon: mdi:weather-partlycloudy
   entities:
     # - group.yr_card

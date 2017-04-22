@@ -1,6 +1,6 @@
-media_player_card:
+media_player_view:
   view: yes
-  name: Media players
+  name: Media
   icon: mdi:movie
   entities:
     - media_player.plex_shield

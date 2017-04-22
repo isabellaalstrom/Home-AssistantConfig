@@ -1,5 +1,0 @@
-automations_view:
-  view: yes
-  icon: mdi:auto-upload
-  entities:
-    - group.automations_card

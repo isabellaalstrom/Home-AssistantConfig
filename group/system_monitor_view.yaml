@@ -1,5 +1,5 @@
 system_monitor_view:
-  name: System info
+  name: System-info
   icon: mdi:lan
   view: yes
   entities:

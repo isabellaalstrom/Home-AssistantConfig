@@ -9,11 +9,6 @@
     sensor.stefan:
       icon: mdi:human-male
 
-
-    group.all_automations:
-      hidden: true
-      homebridge_hidden: true
-
 #########################################
 ######       DEVICE_TRACKING       ######
 #########################################
@@ -100,15 +95,18 @@
 
 ## miflora
     sensor.monstera_battery:
+      icon: mdi:battery
       friendly_name: Monstera batteri
       homebridge_hidden: true
     sensor.monstera_conductivity:
       homebridge_hidden: true 
       hidden: true
     sensor.monstera_light_intensity:
+      icon: mdi:white-balance-iridescent
       friendly_name: Hall lux
       homebridge_hidden: true
     sensor.monstera_moisture:
+      icon: mdi:water-percent
       friendly_name: Monstera fuktighet
       homebridge_hidden: true
     sensor.monstera_temperature:
@@ -116,15 +114,18 @@
       homebridge_hidden: true
 
     sensor.palm_battery:
+      icon: mdi:battery
       friendly_name: Palm batteri
       homebridge_hidden: true
     sensor.palm_conductivity:
       hidden: true
       homebridge_hidden: true
     sensor.palm_light_intensity:
+      icon: mdi:white-balance-iridescent
       friendly_name: Arbetsrum lux
       homebridge_hidden: true
     sensor.palm_moisture:
+      icon: mdi:water-percent
       friendly_name: Palm fuktighet
       homebridge_hidden: true
     sensor.palm_temperature:
@@ -323,3 +324,17 @@
     sensor.dark_sky_daily_max_precip_intensity_1:
       friendly_name: Max nederbörd imorgon
       homebridge_hidden: true
+
+
+#########################################
+######           GROUPS           ######
+#########################################
+    
+    group.all_automations:
+      hidden: false
+    group.all_devices:
+      hidden: false
+    group.all_lights:
+      hidden: false
+    group.all_switches:
+      hidden: false

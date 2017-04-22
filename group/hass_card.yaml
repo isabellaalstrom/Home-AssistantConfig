@@ -1,5 +1,5 @@
 hass_card:
   name: Hass
   entities:
-  - sensor.ha_installed_version
+  # - sensor.ha_installed_version
   - sensor.ha_uptime

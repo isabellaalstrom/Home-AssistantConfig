@@ -1,4 +1,6 @@
 persons_card:
+  view: false
+  name: Personer
   control: hidden
   icon: mdi:human-male-female
   entities:
@@ -10,5 +12,3 @@ persons_card:
   - device_tracker.isabelliphone6s
   - sensor.stefan
   - device_tracker.stefansiphone
-  view: false
-  name: Personer

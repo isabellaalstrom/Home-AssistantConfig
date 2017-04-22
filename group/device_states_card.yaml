@@ -1,5 +1,5 @@
 device_states_card:
-  name: Devices online
+  name: Enhets-status
   entities:
   - sensor.stefan_computer
   - sensor.isa_computer

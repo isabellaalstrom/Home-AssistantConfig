@@ -1,6 +1,6 @@
 plants_view:
   view: yes
-  name: Plants
+  name: Växter
   icon: mdi:flower
   entities:
     - group.palm_card

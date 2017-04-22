@@ -27,6 +27,10 @@ panel_iframe:
     title: MDI Icons
     icon: mdi:vector-square
     url: !secret mdi_index_url
+  hadashboard:
+    title: HaDashboard
+    icon: mdi:television-guide
+    url: !secret hadashboard_url
 
 http:
   api_password: !secret http_password
