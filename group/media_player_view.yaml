@@ -3,6 +3,7 @@ media_player_view:
   name: Media
   icon: mdi:movie
   entities:
+    - media_player.spotify
     - media_player.plex_shield
     - media_player.shield
     - media_player.htse6730_hte6730

@@ -22,8 +22,8 @@
     - platform: state
       entity_id: device_tracker.isabellas_iphone_6s
       state: 'not_home'
-      # for:
-      #   minutes: 5
+      for:
+        minutes: 10
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.isabella_home
@@ -34,7 +34,7 @@
     - service: notify.ios_isabellas_iphone_6s
       data:
         title: 'Du är nu rapporterad som inte hemma.'
-        message: 'test'
+        message: 'Inte hemma'
       
 
 ## Isa is set as home as soon as one of the phone-sensors is set as home
@@ -61,4 +61,4 @@
     - service: notify.ios_isabellas_iphone_6s
       data:
         title: 'Du är nu rapporterad som hemma.'
-        message: ''
+        message: 'Hemma'

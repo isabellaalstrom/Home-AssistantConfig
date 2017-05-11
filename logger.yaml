@@ -16,7 +16,8 @@ logs:
   homeassistant.components.media_player: error
   homeassistant.components.sensor.darksky: error
   homeassistant.components.zwave: info
-  # homeassistant.components.rfxtrx: debug
+  homeassistant.components.rfxtrx: warn
   homeassistant.helpers.script: info
   homeassistant.components.light: debug
+  homeassistant.helpers.entity: error
   root: warn

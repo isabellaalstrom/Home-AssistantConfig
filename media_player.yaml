@@ -10,3 +10,6 @@
     host: !secret samsungtv2_host
     port: 8001
     mac: !secret samsungtv2_mac
+  - platform: spotify
+    client_id: !secret spotify_id
+    client_secret: !secret spotify_secret

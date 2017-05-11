@@ -1,0 +1,35 @@
+- alias: 'Stefan Away'
+  condition:
+    condition: state
+    entity_id: input_boolean.stefan_home
+    state: 'on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphone
+      state: 'not_home'
+      for:
+        minutes: 10
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.stefan_home
+    - service: notify.ios_isabellas_iphone_6s
+      data:
+        title: 'Stefan är rapporterad som inte hemma.'
+        message: 'Inte hemma'
+
+- alias: 'Stefan Home'
+  condition:
+    condition: state
+    entity_id: input_boolean.stefan_home
+    state: 'off'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphone
+      state: 'home'     
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.stefan_home
+    - service: notify.ios_isabellas_iphone_6s
+      data:
+        title: 'Stefan är nu rapporterad som hemma.'
+        message: 'Hemma'
