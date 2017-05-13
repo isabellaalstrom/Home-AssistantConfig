@@ -1,21 +1,11 @@
 device_states_card:
   name: Enhets-status
   entities:
-  - sensor.stefan_computer
-  - sensor.isa_computer
-  - sensor.isa_laptop
-  - sensor.asus_router
-  - sensor.netgear_router
   - sensor.printer
   - sensor.nas
-  - sensor.samsung65
-  - sensor.samsung49
-  - sensor.movie_system
-  - sensor.tivo
-  - sensor.chromecast
-  - sensor.shield
-  - sensor.shield_2
   - sensor.ipad
   - sensor.galaxy_tab
   - sensor.hue_hub
   - sensor.ip_camera
+  - sensor.ir_blaster
+  - sensor.withings_scale

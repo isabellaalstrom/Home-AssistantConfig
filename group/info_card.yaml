@@ -5,3 +5,4 @@ info_card:
   - sensor.date__time
   - sensor.motion_sensor
   - sensor.front_door
+  - switch.roomba

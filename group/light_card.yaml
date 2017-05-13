@@ -2,7 +2,7 @@ light_card:
   name: Lampor
   entities:
     - light.vardagsrumslampa
-    - switch.lampa
+    - light.lampa
     # - input_slider.livingroom_light_brightness
     - light.kokslampa
     - light.hallampa

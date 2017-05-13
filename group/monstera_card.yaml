@@ -6,3 +6,4 @@ monstera_card:
   - sensor.monstera_temperature
   - sensor.monstera_conductivity
   - sensor.monstera_battery
+  - plant.monstera

@@ -8,7 +8,7 @@
       entity_id: device_tracker.iphone
       state: 'not_home'
       for:
-        minutes: 10
+        minutes: 20
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.stefan_home

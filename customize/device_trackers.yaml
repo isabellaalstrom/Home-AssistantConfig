@@ -18,7 +18,7 @@
       hidden: true
       homebridge_hidden: true
     device_tracker.grimsan55:
-      hidden: true
+      hidden: false
       homebridge_hidden: true
     device_tracker.hp16eece:
       hidden: true
@@ -57,5 +57,11 @@
       hidden: true
       homebridge_hidden: true
     device_tracker.isabella_ipad:
+      hidden: true
+      homebridge_hidden: true
+    device_tracker.broadlink_rmminib2ea6e:
+      hidden: true
+      homebridge_hidden: true
+    device_tracker.0024e40a2868:
       hidden: true
       homebridge_hidden: true

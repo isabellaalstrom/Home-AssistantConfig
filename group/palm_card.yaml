@@ -6,3 +6,4 @@ palm_card:
   - sensor.palm_temperature
   - sensor.palm_conductivity
   - sensor.palm_battery
+  - plant.palm

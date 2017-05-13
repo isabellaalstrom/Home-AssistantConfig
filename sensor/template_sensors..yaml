@@ -70,6 +70,12 @@
       ip_camera:
         friendly_name: 'IP Camera'
         value_template: "{{ 'Online' if is_state('device_tracker.00b06c1a907f', 'home') else 'Offline' }}"
+      ir_blaster:
+        friendly_name: 'Broadlink IR Blaster'
+        value_template: "{{ 'Online' if is_state('device_tracker.broadlink_rmminib2ea6e', 'home') else 'Offline' }}"
+      withings_scale:
+        friendly_name: 'Withings-våg'
+        value_template: "{{ 'Online' if is_state('device_tracker.0024e40a2868', 'home') else 'Offline' }}"
       
 
 

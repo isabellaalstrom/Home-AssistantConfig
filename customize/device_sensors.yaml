@@ -56,3 +56,9 @@
     sensor.samsung49:
       icon: mdi:television
       homebridge_hidden: true
+    sensor.ir_blaster:
+      icon: mdi:remote
+      homebridge_hidden: true      
+    sensor.withings_scale:
+      icon: mdi:scale-bathroom
+      homebridge_hidden: true      
