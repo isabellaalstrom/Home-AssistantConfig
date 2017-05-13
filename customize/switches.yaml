@@ -13,3 +13,5 @@
       homebridge_hidden: true
     switch.lampa:
       icon: mdi:ceiling-light
+    switch.roomba:
+      icon: mdi:roomba
