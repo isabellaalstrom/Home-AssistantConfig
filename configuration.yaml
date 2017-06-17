@@ -70,11 +70,11 @@ camera:
     input: !secret camera_input
     extra_arguments: -pred 1
 
-zone:
-  name: LIA
-  latitude: !secret lia_lat
-  longitude: !secret lia_long
-  icon: mdi:code-braces
+# zone:
+#   name: LIA
+#   latitude: !secret lia_lat
+#   longitude: !secret lia_long
+#   icon: mdi:code-braces
 
 device_tracker: !include device_tracker.yaml
 logger: !include logger.yaml
@@ -103,7 +103,9 @@ light:
     devices:
       0b11000676bc0cfe01010f70:
         name: Lampa
-
+google:
+  client_id: !secret google_id
+  client_secret: !secret google_secret
 ## TEST AREA ##
   # - platform: template 
   #   sensors:

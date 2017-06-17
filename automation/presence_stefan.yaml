@@ -1,21 +1,51 @@
-- alias: 'Stefan Away'
-  condition:
-    condition: state
-    entity_id: input_boolean.stefan_home
-    state: 'on'
+# test with door trigger for presence (if door is not opened I cannot have left) - seems to be working
+- alias: 'Stefan away'
   trigger:
     - platform: state
-      entity_id: device_tracker.iphone
+      entity_id: group.stefan
       state: 'not_home'
       for:
-        minutes: 20
+        minutes: 10
+  # door must have been opened in the last 20 minutes to be reported as away
+  # also pc needs to be shut off, to eliminate some false aways
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.front_door
+        state: 'on'
+      - condition: state
+        entity_id: device_tracker.grimsan55
+        state: 'not_home'
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.stefan_home
     - service: notify.ios_isabellas_iphone_6s
       data:
-        title: 'Stefan är rapporterad som inte hemma.'
+        title: 'Stefan är nu rapporterad som inte hemma.'
         message: 'Inte hemma'
+
+# but if away for more than 30 min the away is probably true
+# but pc was left on
+- alias: 'Stefan away with pc on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphone
+      state: 'not_home'
+      for:
+        minutes: 30
+  condition:
+    condition: state
+    entity_id: device_tracker.grimsan55
+    state: 'home'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.stefan_home
+    - service: notify.ios_isabellas_iphone_6s
+      data:
+        title: 'Stefan är nu rapporterad som inte hemma.'
+        message: 'Men hans dator är på'
+
 
 - alias: 'Stefan Home'
   condition:
@@ -24,7 +54,7 @@
     state: 'off'
   trigger:
     - platform: state
-      entity_id: device_tracker.iphone
+      entity_id: group.stefan
       state: 'home'     
   action:
     - service: homeassistant.turn_on

@@ -1,0 +1,4 @@
+front_door:
+    name: Front door
+    initial: off
+    # icon:

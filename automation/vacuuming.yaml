@@ -1,0 +1,48 @@
+## Every hour between 10 and 17 check if no one is home.
+## If no one is home and you havent already vacuumed today, switch on the roomba and set vacuumed today to on.
+
+- alias: 'Vacuum when everyone is away'
+  trigger:
+    platform: time
+    minutes: 5
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.isabella
+        state: 'not_home'
+      - condition: state
+        entity_id: group.stefan
+        state: 'not_home'
+      - condition: time
+        after: '10:00:00'
+        before: '17:00:00'
+      - condition: state
+        entity_id: input_boolean.vacuumed_today
+        state: 'off'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.roomba
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.vacuumed_today
+    - service: notify.ios_isabellas_iphone_6s
+      data:
+        title: 'Nu sätter jag på dammsugaren.'
+        message: 'Ingen är hemma.'
+
+## Reset the vacuumed today check each night
+- alias: 'Reset vaccuming boolean'
+  trigger:
+    platform: time
+    after: '00:01:00' ## change to at after update hass
+  condition:
+    condition: state
+    entity_id: input_boolean.vacuumed_today
+    state: 'on'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.vacuumed_today
+    - service: homeassistant.turn_off
+      entity_id: switch.roomba
+# input_boolean.vacuumed_today

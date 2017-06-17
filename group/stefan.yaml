@@ -3,5 +3,5 @@ stefan:
   entities:
     # - device_tracker.stefansiphone
     - device_tracker.iphone
-    - device_tracker.stefansplewatch
-    - sensor.stefan_computer    
+    # - device_tracker.stefansplewatch
+    # - sensor.stefan_computer    

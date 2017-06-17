@@ -1,8 +1,11 @@
 info_card:
   name: Info
+  control: hidden
   entities:
   - sun.sun
   - sensor.date__time
   - sensor.motion_sensor
   - sensor.front_door
-  - switch.roomba
+  # - input_boolean.front_door
+  # - switch.roomba
+  - input_boolean.vacuumed_today

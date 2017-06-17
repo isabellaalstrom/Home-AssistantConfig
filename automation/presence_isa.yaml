@@ -1,43 +1,25 @@
-## Isa is set as away when both phone-sensors have been away for 10 minutes
-
-## test with only ios app reporting presence
- 
-- alias: 'Isa Away'
-  condition:
-    condition: state
-    entity_id: input_boolean.isabella_home
-    state: 'on'
-  # condition:
-    # condition: and
-    # conditions:
-      # - condition: state
-      #   entity_id: input_boolean.isabella_home
-      #   state: 'on'
-      # - condition: state
-      #   entity_id: device_tracker.isabelliphone6s
-      #   state: 'not_home'     
-      #   for:
-      #     minutes: 10
+# test with door trigger for presence (if door is not opened I cannot have left) - seems to be working
+- alias: 'Isa away'
   trigger:
     - platform: state
-      entity_id: device_tracker.isabellas_iphone_6s
+      entity_id: group.isabella
       state: 'not_home'
       for:
         minutes: 10
+  # door must have been opened in the last 20 minutes to be reported as away
+  condition:
+    condition: state
+    entity_id: input_boolean.front_door
+    state: 'on'
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.isabella_home
-    # - service: notify.pushbullet_isa
-    #   data:
-    #     title: 'Isa is now away from home!'
-    #     message: 'You are reported as away'
     - service: notify.ios_isabellas_iphone_6s
       data:
         title: 'Du är nu rapporterad som inte hemma.'
         message: 'Inte hemma'
-      
 
-## Isa is set as home as soon as one of the phone-sensors is set as home
+## Isa is set as home as soon as group.isabella is set as home
 
 - alias: 'Isa Home'
   condition:
@@ -46,18 +28,11 @@
     state: 'off'
   trigger:
     - platform: state
-      entity_id: device_tracker.isabellas_iphone_6s
-      state: 'home' 
-    # - platform: state
-    #   entity_id: device_tracker.isabelliphone6s
-    #   state: 'home'       
+      entity_id: group.isabella
+      state: 'home'
   action:
     - service: homeassistant.turn_on
       entity_id: input_boolean.isabella_home
-    # - service: notify.pushbullet_isa
-    #   data:
-    #     title: 'Isa is now home!'
-    #     message: 'You are reported as home'
     - service: notify.ios_isabellas_iphone_6s
       data:
         title: 'Du är nu rapporterad som hemma.'

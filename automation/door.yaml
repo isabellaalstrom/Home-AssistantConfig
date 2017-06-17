@@ -1,0 +1,50 @@
+## notify when door opened (replace with alert) and set input_boolean.front_door to on to allow for presence automations
+  - alias: Front door opened
+    trigger:
+      platform: state
+      entity_id: switch.door
+      from: 'off'
+      to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.front_door
+      - service: notify.pushbullet_isa
+        data:
+          title: 'Ytterdörren är öppen'
+          message: 'Stäng dörren!'
+      - service: notify.ios_isabellas_iphone_6s
+        data:
+          title: 'Dörren är öppen'
+          message: 'test'
+
+##have input_boolean.front_door be on for 20 minutes to allow presence detection to trigger
+  - alias: Door input boolean delay
+    trigger:
+      platform: state
+      entity_id: input_boolean.front_door
+      to: 'on'
+    action:
+      - delay: 0:20
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.front_door
+      # - service: notify.ios_isabellas_iphone_6s
+      #   data:
+      #     title: 'Dörr boolean stängd'
+      #     message: 'dörr stängd'
+
+## notify when door closed (replace with alert for door open)
+  - alias: Front door closed
+    trigger:
+      platform: state
+      entity_id: switch.door
+      from: 'on'
+      to: 'off'
+    action:
+      # - service: notify.pushbullet_isa
+      #   data:
+      #     title: 'Dörren är stängd'
+      #     message: ''
+      - service: notify.ios_isabellas_iphone_6s
+        data:
+          title: 'Dörren är stängd'
+          message: ''

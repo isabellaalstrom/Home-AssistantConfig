@@ -1,2 +1,8 @@
   - platform: rfxtrx
     # automatic_add: True
+    # devices:
+    #   08500a00380100bc69:
+    #     name: Temperatur Esic
+    #     data_type:
+    #     #  - Humidity
+    #      - Temperature

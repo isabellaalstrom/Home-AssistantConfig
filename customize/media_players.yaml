@@ -27,3 +27,7 @@
       friendly_name: Fel Spotify?
       homebridge_hidden: true
       hidden: true
+    media_player.shield_2:
+      friendly_name: Plex Shield
+      icon: mdi:plex
+      homebridge_hidden: true
