@@ -1,0 +1,5 @@
+outside_lights_card:
+  name: Outside lights
+  entities:
+    - light.yard_outside_light
+    - light.front_outside_light

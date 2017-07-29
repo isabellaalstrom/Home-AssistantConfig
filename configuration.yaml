@@ -123,6 +123,9 @@ light:
     devices:
       0b11000676bc0cfe01010f70:
         name: Hallway Window Light
+  - platform: hue
+    host: 192.168.1.83
+    allow_unreachable: true
 google:
   client_id: !secret google_id
   client_secret: !secret google_secret

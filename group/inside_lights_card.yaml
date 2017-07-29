@@ -1,11 +1,10 @@
-light_card:
-  name: Lampor
+inside_lights_card:
+  name: Inside lights
   entities:
+    - light.hallway_window_light
     - light.living_room_ceiling_light_level
     - light.living_room_spotlights_level    
     - light.upstairs_hallway_ceiling_light_level
     - light.dining_area_ceiling_light_level
     - light.passage_ceiling_spotlights_level
     - light.isa_ceiling_lamp
-    - light.yard_outside_light
-    - light.front_outside_light

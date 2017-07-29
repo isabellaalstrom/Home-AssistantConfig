@@ -17,3 +17,9 @@
       0a1411010082c908000070:
         name: White2
         fire_event: true
+      0b1100000009a25202010f60:
+        name: Bedroom light switch
+        fire_event: true
+      0b1100040009a25201010f70:
+        name: All lights off switch
+        fire_event: true
