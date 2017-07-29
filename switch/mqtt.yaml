@@ -1,0 +1,26 @@
+- platform: mqtt
+  name: "Stefan On Air"
+  state_topic: "OnAirLed/Switch1/Control"
+  command_topic: "OnAirLed/gpio/15"
+  payload_on: "1"
+  payload_off: "0"
+  optimistic: false
+  qos: 0
+
+- platform: mqtt
+  name: "EspButton"
+  state_topic: "EspButton/Button/state"
+  command_topic: "EspButton/gpio/15"
+  payload_on: "1"
+  payload_off: "0"
+  optimistic: false
+  qos: 0
+
+- platform: mqtt
+  name: "EspButtonLed"
+  state_topic: "EspButton/Led/state"
+  command_topic: "EspButton/gpio/13"
+  payload_on: "1"
+  payload_off: "0"
+  optimistic: false
+  qos: 0

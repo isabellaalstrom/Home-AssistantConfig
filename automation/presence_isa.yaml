@@ -3,14 +3,14 @@
   trigger:
     - platform: state
       entity_id: group.isabella
-      state: 'not_home'
-      for:
-        minutes: 10
-  # door must have been opened in the last 20 minutes to be reported as away
-  condition:
-    condition: state
-    entity_id: input_boolean.front_door
-    state: 'on'
+      to: 'not_home'
+      # for:
+      #   minutes: 10
+  # # door must have been opened in the last 20 minutes to be reported as away
+  # condition:
+  #   condition: state
+  #   entity_id: input_boolean.front_door
+  #   state: 'on'
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.isabella_home
@@ -29,7 +29,7 @@
   trigger:
     - platform: state
       entity_id: group.isabella
-      state: 'home'
+      to: 'home'
   action:
     - service: homeassistant.turn_on
       entity_id: input_boolean.isabella_home

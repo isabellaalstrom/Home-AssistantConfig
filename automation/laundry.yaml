@@ -1,0 +1,29 @@
+# - alias: 'Washer Start'
+#   trigger:
+#     platform: state
+#     entity_id: sensor.washer
+#     from: 'True'
+#     to: 'False'
+#   action:
+#     service: input_boolean.turn_on
+#     entity_id: input_boolean.washer_in_use
+
+# - alias: 'Washer Done'
+#   trigger:
+#     platform: state
+#     entity_id: sensor.washer
+#     from: 'False'
+#     to: 'True'
+#     for:
+#       minutes: 10
+#   condition:
+#       condition: state
+#       entity_id: input_boolean.washer_in_use
+#       state: 'on'
+#   action:
+#     - service: notify.ios_isabellas_iphone_6s
+#       data:
+#         title: 'Tvätten är klar.'
+#         message: 'Lägg in i torktumlaren och häng upp!'
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.washer_in_use

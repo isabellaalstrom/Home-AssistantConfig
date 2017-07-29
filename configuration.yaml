@@ -12,7 +12,7 @@ homeassistant:
 frontend:
 config:
 updater:
-discovery:
+# discovery:
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
 history:
@@ -32,6 +32,17 @@ panel_iframe:
     title: HaDashboard
     icon: mdi:television-guide
     url: !secret hadashboard_url
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: !secret configurator_url
+    
+# panel_custom: 
+#   - name: floorplan
+#     sidebar_title: floorplan
+#     sidebar_icon: mdi:home
+#     url_path: floorplan
+#     config: !include groundfloor.yaml
 
 http:
   api_password: !secret http_password
@@ -51,8 +62,9 @@ rfxtrx:
   device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A14SREW-if00-port0
   debug:
 
-#zwave:
-#  usb_path: /dev/ttyACM0
+zwave:
+  usb_path: /dev/ttyACM0
+  new_entity_ids: true
 
 mqtt:
   broker: !secret mqtt_broker
@@ -69,6 +81,10 @@ camera:
     name: Camera Sannce
     input: !secret camera_input
     extra_arguments: -pred 1
+  # - platform: onvif
+  #   host: !secret onvif_host
+  #   name: Cat cam
+  #   port: 10554
 
 # zone:
 #   name: LIA
@@ -94,15 +110,19 @@ input_boolean: !include_dir_merge_named input_boolean/
 input_select: !include_dir_merge_named input_select/
 # input_slider: !include_dir_merge_named input_slider/
 binary_sensor:
-  - platform: ffmpeg_motion
-    input: !secret ffmpeg_motion_input
+  # - platform: ffmpeg_motion
+  #   input: !secret ffmpeg_motion_input
 #    reset: 60
+  - platform: template
+    sensors:
+      front_door:
+        value_template: "{{ states.switch.door.state == 'on' }}" 
 light:
   - platform: rfxtrx
     automatic_add: true
     devices:
       0b11000676bc0cfe01010f70:
-        name: Lampa
+        name: Hallway Window Light
 google:
   client_id: !secret google_id
   client_secret: !secret google_secret

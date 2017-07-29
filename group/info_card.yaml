@@ -2,10 +2,15 @@ info_card:
   name: Info
   control: hidden
   entities:
-  - sun.sun
   - sensor.date__time
-  - sensor.motion_sensor
+  - sun.sun
   - sensor.front_door
-  # - input_boolean.front_door
-  # - switch.roomba
-  - input_boolean.vacuumed_today
+  - sensor.back_door
+  - sensor.nexa_door
+  - sensor.dining_area_window
+  - sensor.vacuumed_today
+  - sensor.motion_sensor
+  - switch.stefan_on_air
+  - sensor.grimsan55
+  - sensor.fire_alarm_1_sensor_status
+  - sensor.fire_alarm_2_sensor_status

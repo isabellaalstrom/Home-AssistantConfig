@@ -10,3 +10,7 @@
       hidden: false
     group.all_switches:
       hidden: false
+    group.info_card:
+      order: 1
+    group.light_card:
+      order: 2

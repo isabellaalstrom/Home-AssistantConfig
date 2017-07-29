@@ -15,11 +15,11 @@ logs:
   homeassistant.components.http: error
   homeassistant.components.media_player: error
   homeassistant.components.sensor.darksky: error
-  homeassistant.components.zwave: info
+  homeassistant.components.zwave: warn
   homeassistant.components.rfxtrx: warn
   homeassistant.helpers.script: info
-  homeassistant.components.light: info
+  homeassistant.components.light: warn
   homeassistant.helpers.entity: error
   homeassistant.components.ffmpeg: debug
-  homeassistant.components.ffmpeg_motion: debug  
+  homeassistant.components.ffmpeg_motion: debug
   root: warn

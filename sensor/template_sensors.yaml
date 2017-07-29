@@ -64,9 +64,9 @@
       asus_router:
         friendly_name: 'Asus Router'
         value_template: "{{ 'Online' if is_state('device_tracker.routerasuscom', 'home') else 'Offline' }}"
-      tivo:
-        friendly_name: 'TIVO'
-        value_template: "{{ 'Online' if is_state('device_tracker.tivoe800d5bf09d5729', 'home') else 'Offline' }}"
+      # tivo:
+      #   friendly_name: 'TIVO'
+      #   value_template: "{{ 'Online' if is_state('device_tracker.tivoe800d5bf09d5729', 'home') else 'Offline' }}"
       ip_camera:
         friendly_name: 'IP Camera'
         value_template: "{{ 'Online' if is_state('device_tracker.00b06c1a907f', 'home') else 'Offline' }}"
@@ -76,7 +76,9 @@
       withings_scale:
         friendly_name: 'Withings-våg'
         value_template: "{{ 'Online' if is_state('device_tracker.0024e40a2868', 'home') else 'Offline' }}"
-      
+      sonos_3:
+        friendly_name: 'Sonos Play 3'
+        value_template: "{{ 'Online' if is_state('device_tracker.sonos_3', 'home') else 'Offline' }}"
 
 
       #########################################
@@ -84,10 +86,50 @@
       #########################################
 
       motion_sensor:
-        friendly_name: 'Motion sensor'
-        value_template: '{% if is_state("switch.motion_sensor", "on") %}Motion detected{% else %}No motion{% endif %}'
-        icon_template: '{% if is_state("switch.motion_sensor", "on") %}mdi:eye-outline{% else %}mdi:eye-off-outline{% endif %}'
-      front_door:
-        friendly_name: 'Front door'
+        friendly_name: 'Litter Box Upstairs'
+        value_template: '{% if is_state("switch.motion_sensor", "on") %}Occupied{% else %}Not in use{% endif %}'
+        icon_template: '{% if is_state("switch.motion_sensor", "on") %}mdi:cat{% else %}mdi:application{% endif %}'
+      nexa_door:
+        friendly_name: 'Backyard Storage Door'
         value_template: '{% if is_state("switch.door", "on") %}Open{% else %}Closed{% endif %}'
-        icon_template: '{% if is_state("switch.door", "on") %}mdi:message-alert{% else %}mdi:page-layout-sidebar-right{% endif %}'
+        icon_template: '{% if is_state("switch.door", "on") %}mdi:login{% else %}mdi:page-layout-sidebar-right{% endif %}'
+
+      #########################################
+      ######         ZWAVE SWITCHES      ######
+      #########################################
+      front_door:
+        friendly_name: 'Front Door'
+        value_template: '{% if is_state("sensor.sensative_access_control", "22") %}Open{% else %}Closed{% endif %}'
+        icon_template: '{% if is_state("sensor.sensative_access_control", "22") %}mdi:login{% else %}mdi:page-layout-sidebar-right{% endif %}'
+      sensative_door_battery:
+        friendly_name: 'Sensative Door Battery'
+        value_template: '{% if states.zwave.sensative %}
+          {{ states.zwave.sensative.attributes.battery_level }}
+        {% else %}
+          n/a
+        {% endif %}'
+        unit_of_measurement: '%'
+        entity_id: zwave.sensative
+
+      dining_area_window:
+        friendly_name: 'Dining area window'
+        value_template: '{% if is_state("binary_sensor.dining_area_window_sensor_sensor", "on") %}Open{% else %}Closed{% endif %}'
+        icon_template: '{% if is_state("binary_sensor.dining_area_window_sensor_sensor", "on") %}mdi:window-open{% else %}mdi:window-closed{% endif %}'
+      
+      back_door:
+        friendly_name: 'Back Door'
+        value_template: '{% if is_state("binary_sensor.back_door_sensor", "on") %}Open{% else %}Closed{% endif %}'
+        icon_template: '{% if is_state("binary_sensor.back_door_sensor", "on") %}mdi:message-alert{% else %}mdi:page-layout-sidebar-right{% endif %}'
+
+      #########################################
+      ######         OTHER SWITCHES      ######
+      #########################################
+
+      vacuumed_today:
+        friendly_name: 'Has Roomba vacuumed downstairs today?'
+        value_template: '{% if is_state("input_boolean.vacuumed_today", "on") %}Yes{% else %}No{% endif %}'
+        icon_template: '{% if is_state("input_boolean.vacuumed_today", "on") %}mdi:roomba{% else %}mdi:cancel{% endif %}'
+      
+      # washer:
+      #   friendly_name: Washer state
+      #   value_template: "{{ states('sensor.fibaro_plug_power') | int < 3.4 }}"

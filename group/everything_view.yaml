@@ -6,3 +6,4 @@ everything_view:
     - group.all_devices
     - group.all_lights
     - group.all_switches
+    - group.all_zwave

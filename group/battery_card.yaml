@@ -7,3 +7,4 @@ battery_card:
   - sensor.paddan_battery_state
   - sensor.monstera_battery
   - sensor.palm_battery
+  - sensor.sensative_door_battery

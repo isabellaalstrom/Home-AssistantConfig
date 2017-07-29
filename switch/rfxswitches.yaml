@@ -1,6 +1,6 @@
   - platform: rfxtrx
     automatic_add: True
-    # signal_repetitions: 3
+    signal_repetitions: 3
     devices:
       0b1100070009a56e01010f60:
         name: Right button
@@ -10,3 +10,10 @@
         name: Motion sensor
       0b11001f01539bda0a010f50:
         name: Door
+      0b1100060163e70201010f70:
+        name: Stefans fläkt
+      09130000a96601013e70:
+        name: White1
+      0a1411010082c908000070:
+        name: White2
+        fire_event: true

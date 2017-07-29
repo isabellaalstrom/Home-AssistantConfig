@@ -11,7 +11,9 @@
     switch.motion_sensor:
       hidden: true
       homebridge_hidden: true
+    # telldus dimmer
     switch.lampa:
       icon: mdi:ceiling-light
+      assumed_state: true
     switch.roomba:
       icon: mdi:roomba

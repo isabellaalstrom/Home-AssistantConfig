@@ -13,3 +13,15 @@ media_player_view:
   - media_player.plex_web_chrome
   name: Media
   view: true
+default_view:
+  entities:
+  - group.info_card
+  - group.light_card
+  - group.isabella
+  - sensor.isa
+  - group.stefan
+  - sensor.stefan
+  - group.camera_card
+  - input_select.house_mode
+  name: Info
+  view: true

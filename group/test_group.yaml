@@ -1,0 +1,7 @@
+test_group:
+  name: Test
+  entities:
+    - sensor.fibaro_plug_energy
+    - sensor.fibaro_plug_power
+    # - sensor.washer
+    # - input_boolean.washer_in_use

@@ -61,4 +61,7 @@
       homebridge_hidden: true      
     sensor.withings_scale:
       icon: mdi:scale-bathroom
-      homebridge_hidden: true      
+      homebridge_hidden: true
+    sensor.sonos_3:
+      icon: mdi:speaker-wireless
+      homebridge_hidden: true

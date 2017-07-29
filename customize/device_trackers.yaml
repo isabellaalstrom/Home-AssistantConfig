@@ -65,3 +65,16 @@
     device_tracker.0024e40a2868:
       hidden: true
       homebridge_hidden: true
+    device_tracker.sonos_3:
+      hidden: true
+      homebridge_hidden: true
+
+    device_tracker.isabellas_iphone_6s:
+      icon: mdi:cellphone-iphone
+    device_tracker.isabelliphone6s:
+      icon: mdi:cellphone-iphone
+    device_tracker.isabellas_iphone_6s_bt:
+      icon: mdi:bluetooth
+
+    device_tracker.stefan_iphone_7:
+      icon: mdi:cellphone-iphone

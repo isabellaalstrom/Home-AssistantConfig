@@ -7,3 +7,22 @@
     skip_first: False
     notifiers:
       - pushbullet_isa
+  
+  
+## NEED TO SET UP FOR BATTERIES
+
+# binary_sensor:
+#   - platform: template
+#     sensors:
+#       motion_battery_low:
+#         value_template: '{{ states.sensor.motion.attributes.battery < 15 }}'
+#         friendly_name: 'Motion battery is low'
+
+# alert:
+#   motion_battery:
+#     name: Motion Battery is Low
+#     entity_id: binary_sensor.motion_battery_low
+#     repeat: 30
+#     notifiers:
+#       - ryans_phone
+#       - kristens_phone

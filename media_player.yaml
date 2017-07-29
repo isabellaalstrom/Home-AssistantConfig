@@ -6,23 +6,23 @@
 #  - platform: samsungtv
 #    name: Vilken tv
 #    host: !secret samsungtv1_host
-  - platform: samsungtv
-    name: Vardagsrums-tv
-    host: !secret samsungtv2_host
-    port: 8001
-    mac: !secret samsungtv2_mac
-  - platform: spotify
-    client_id: !secret spotify_id
-    client_secret: !secret spotify_secret
-  - platform: universal
-    name: Mediacenter vardagsrum
-    children:
-      # - media_player.htse6730_hte6730
-      - media_player.plex_shield
-      - media_player.shield
-      # - media_player.vardagsrumstv
-  - platform: universal
-    name: Mediacenter sovrum
-    children:
-      # - media_player._samsung_5_series_49_ue49k5505
-      - media_player.sovrum
+  # - platform: samsungtv
+  #   name: Vardagsrums-tv
+  #   host: !secret samsungtv2_host
+  #   port: 8001
+  #   mac: !secret samsungtv2_mac
+  # - platform: spotify
+  #   client_id: !secret spotify_id
+  #   client_secret: !secret spotify_secret
+  # - platform: universal
+  #   name: Mediacenter vardagsrum
+  #   children:
+  #     # - media_player.htse6730_hte6730
+  #     - media_player.plex_shield
+  #     - media_player.shield
+  #     # - media_player.vardagsrumstv
+  # - platform: universal
+  #   name: Mediacenter sovrum
+  #   children:
+  #     # - media_player._samsung_5_series_49_ue49k5505
+  #     - media_player.sovrum
