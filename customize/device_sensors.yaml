@@ -59,6 +59,9 @@
     sensor.ir_blaster:
       icon: mdi:remote
       homebridge_hidden: true      
+    sensor.ir_blaster_bedroom:
+      icon: mdi:remote
+      homebridge_hidden: true    
     sensor.withings_scale:
       icon: mdi:scale-bathroom
       homebridge_hidden: true

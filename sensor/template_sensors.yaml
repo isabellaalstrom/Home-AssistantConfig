@@ -5,12 +5,12 @@
       #########################################
       ######            PERSONS          ######
       #########################################
-      isa:
-        friendly_name: 'Isa'
-        value_template: "{{ 'Home' if is_state('input_boolean.isabella_home', 'on') else 'Away' }}"
-      stefan:
-        friendly_name: 'Stefan'
-        value_template: "{{ 'Home' if is_state('input_boolean.stefan_home', 'on') else 'Away' }}"
+      # isa:
+      #   friendly_name: 'Isa'
+      #   value_template: "{{ 'Home' if is_state('input_boolean.isabella_home', 'on') else 'Away' }}"
+      # stefan:
+      #   friendly_name: 'Stefan'
+      #   value_template: "{{ 'Home' if is_state('input_boolean.stefan_home', 'on') else 'Away' }}"
 
       #########################################
       ######           DEVICES           ######
@@ -71,7 +71,7 @@
         friendly_name: 'IP Camera'
         value_template: "{{ 'Online' if is_state('device_tracker.00b06c1a907f', 'home') else 'Offline' }}"
       ir_blaster:
-        friendly_name: 'Broadlink IR Blaster'
+        friendly_name: 'Broadlink IR Blaster Hallway'
         value_template: "{{ 'Online' if is_state('device_tracker.broadlink_rmminib2ea6e', 'home') else 'Offline' }}"
       withings_scale:
         friendly_name: 'Withings-våg'
@@ -79,6 +79,9 @@
       sonos_3:
         friendly_name: 'Sonos Play 3'
         value_template: "{{ 'Online' if is_state('device_tracker.sonos_3', 'home') else 'Offline' }}"
+      ir_blaster_bedroom:
+        friendly_name: 'Broadlink IR Blaster Bedroom'
+        value_template: "{{ 'Online' if is_state('device_tracker.broadlink_rmminicce9a4', 'home') else 'Offline' }}"
 
 
       #########################################
@@ -130,6 +133,6 @@
         value_template: '{% if is_state("input_boolean.vacuumed_today", "on") %}Yes{% else %}No{% endif %}'
         icon_template: '{% if is_state("input_boolean.vacuumed_today", "on") %}mdi:roomba{% else %}mdi:cancel{% endif %}'
       
-      # washer:
-      #   friendly_name: Washer state
-      #   value_template: "{{ states('sensor.fibaro_plug_power') | int < 3.4 }}"
+      washer:
+        friendly_name: Washer state
+        value_template: "{{ states('sensor.washer_plug_power') | int < 3.4 }}"

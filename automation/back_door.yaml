@@ -1,10 +1,12 @@
 ## notify when door opened (replace with alert) and set input_boolean.front_door to on to allow for presence automations
-  - alias: Front door opened
+  - alias: Back door opened
     trigger:
       platform: state
       entity_id: sensor.back_door
       from: 'Closed'
-      to: 'Opened'
+      to: 'Open'
+
+      ## add condition for not_home or alarm on
     action:
       - service: homeassistant.turn_on
         entity_id: input_boolean.front_door
@@ -25,11 +27,11 @@
         entity_id: input_boolean.front_door
 
 ## notify when door closed (replace with alert for door open)
-  - alias: Front door closed
+  - alias: Back door closed
     trigger:
       platform: state
       entity_id: sensor.back_door
-      from: 'Opened'
+      from: 'Open'
       to: 'Closed'
     action:
       - service: notify.ios_isabellas_iphone_6s

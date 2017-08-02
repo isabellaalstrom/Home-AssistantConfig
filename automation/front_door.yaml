@@ -3,8 +3,8 @@
     trigger:
       platform: state
       entity_id: sensor.front_door
-      from: 'Closed'
-      to: 'Opened'
+      to: 'Open'
+            ## add condition for not_home or alarm on
     action:
       - service: homeassistant.turn_on
         entity_id: input_boolean.front_door
@@ -29,7 +29,7 @@
     trigger:
       platform: state
       entity_id: sensor.front_door
-      from: 'Opened'
+      from: 'Open'
       to: 'Closed'
     action:
       - service: notify.ios_isabellas_iphone_6s

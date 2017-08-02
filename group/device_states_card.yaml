@@ -8,4 +8,5 @@ device_states_card:
   - sensor.hue_hub
   - sensor.ip_camera
   - sensor.ir_blaster
+  - sensor.ir_blaster_bedroom
   - sensor.withings_scale

@@ -15,8 +15,29 @@ updater:
 # discovery:
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
-history:
+# history:
+recorder:
+  purge_days: 1
 ios:
+  push:
+    categories:
+      - name: Laundry clean in washer
+        identifier: 'WASHER'
+        actions:
+          - identifier: 'WASHER_EMPTIED'
+            title: 'Yes'
+            # activationMode: 'background'
+            authenticationRequired: yes
+            # destructive: no
+            behavior: 'default'
+          - identifier: 'WASHER_NOT_EMPTIED'
+            title: 'Snooze'
+            activationMode: 'background'
+            # authenticationRequired: yes
+            destructive: yes
+            # behavior: 'textInput'
+            # textInputButtonTitle: 'Silencio!'
+            # textInputPlaceholder: 'Placeholder'
 sun:
 
 panel_iframe:
@@ -129,15 +150,3 @@ light:
 google:
   client_id: !secret google_id
   client_secret: !secret google_secret
-## TEST AREA ##
-  # - platform: template 
-  #   sensors:
-  #     movement:
-  #       value_template: "{{ states.switch.motion_sensor.state == 'on' }}"
-  #       device_class: motion
-  #     door:
-  #       value_template: "{{ states.switch.door.state == 'on' }}" 
-  #       device_class: opening
-#shell_command: !include_dir_merge_named shell_command
-
-

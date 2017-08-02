@@ -2,7 +2,7 @@
 - alias: 'Isa away'
   trigger:
     - platform: state
-      entity_id: group.isabella
+      entity_id: device_tracker.isabellas_iphone_6s
       to: 'not_home'
       # for:
       #   minutes: 10
@@ -12,8 +12,8 @@
   #   entity_id: input_boolean.front_door
   #   state: 'on'
   action:
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.isabella_home
+    # - service: homeassistant.turn_off
+    #   entity_id: input_boolean.isabella_home
     - service: notify.ios_isabellas_iphone_6s
       data:
         title: 'Du är nu rapporterad som inte hemma.'
@@ -22,18 +22,26 @@
 ## Isa is set as home as soon as group.isabella is set as home
 
 - alias: 'Isa Home'
-  condition:
-    condition: state
-    entity_id: input_boolean.isabella_home
-    state: 'off'
   trigger:
     - platform: state
-      entity_id: group.isabella
+      entity_id: device_tracker.isabellas_iphone_6s
       to: 'home'
   action:
-    - service: homeassistant.turn_on
-      entity_id: input_boolean.isabella_home
+    # - service: homeassistant.turn_on
+    #   entity_id: input_boolean.isabella_home
     - service: notify.ios_isabellas_iphone_6s
       data:
         title: 'Du är nu rapporterad som hemma.'
         message: 'Hemma'
+
+- alias: Isa zone home test
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.isabellas_iphone_6s
+      zone: zone.home
+      event: enter
+  action:
+    - service: notify.ios_isabellas_iphone_6s
+      data:
+        title: 'Zone:'
+        message: 'Home'

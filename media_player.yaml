@@ -2,6 +2,7 @@
   - platform: plex
     entity_namespace: 'plex'
     # show_all_controls: true
+  - platform: sonos
 
 #  - platform: samsungtv
 #    name: Vilken tv

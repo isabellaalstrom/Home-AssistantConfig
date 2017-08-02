@@ -6,12 +6,18 @@
     event: sunset
     offset: "-00:45:00"
   action:
-    - service: homeassistant.turn_on
+    - service: light.turn_on
       entity_id: light.front_outside_light
-    - service: homeassistant.turn_on
+      data:
+        brightness: 127
+    - service: light.turn_on
       entity_id: light.yard_outside_light
-    - service: homeassistant.turn_on
+      data:
+        brightness: 127
+    - service: light.turn_on
       entity_id: light.hallway_window_light
+      data:
+        brightness: 127
 
 ## Turn off outside lights and hallway window light at midnight
 - alias: Lights off at midnight
@@ -43,12 +49,18 @@
     after: '00:01:00'
     before: '05:00:00'
   action:
-    - service: homeassistant.turn_on
+    - service: light.turn_on
       entity_id: light.front_outside_light
-    - service: homeassistant.turn_on
+      data:
+        brightness: 127
+    - service: light.turn_on
       entity_id: light.yard_outside_light
-    - service: homeassistant.turn_on
+      data:
+        brightness: 127
+    - service: light.turn_on
       entity_id: light.hallway_window_light
+      data:
+        brightness: 127
 
     - delay: 0:10
     
@@ -75,5 +87,5 @@
     after: '00:01:00'
     before: '05:00:00'
   action:
-    - service: homeassistant.turn_on
+    - service: light.turn_on
       entity_id: light.passage_ceiling_spotlights_level
