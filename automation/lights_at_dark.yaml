@@ -17,7 +17,7 @@
     - service: light.turn_on
       entity_id: light.hallway_window_light
       data:
-        brightness: 127
+        brightness: 45
 
 ## Turn off outside lights and hallway window light at midnight
 - alias: Lights off at midnight
@@ -60,7 +60,7 @@
     - service: light.turn_on
       entity_id: light.hallway_window_light
       data:
-        brightness: 127
+        brightness: 45
 
     - delay: 0:10
     

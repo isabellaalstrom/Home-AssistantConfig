@@ -70,11 +70,11 @@ http:
   # Uncomment this if you are using SSL or running in Docker etc
   base_url: !secret base_url
 
-influxdb:
-  host: 127.0.0.1
-  database: home_assistant
-  username: !secret influxdb_username
-  password: !secret influxdb_password
+# influxdb:
+#   host: 127.0.0.1
+#   database: home_assistant
+#   username: !secret influxdb_username
+#   password: !secret influxdb_password
 
 tts:
   platform: google
@@ -138,6 +138,8 @@ binary_sensor:
     sensors:
       front_door:
         value_template: "{{ states.switch.door.state == 'on' }}" 
+  - platform: rfxtrx
+    automatic_add: True
 light:
   - platform: rfxtrx
     automatic_add: true
@@ -146,7 +148,7 @@ light:
         name: Hallway Window Light
   - platform: hue
     host: 192.168.1.83
-    allow_unreachable: true
+    # allow_unreachable: true
 google:
   client_id: !secret google_id
   client_secret: !secret google_secret

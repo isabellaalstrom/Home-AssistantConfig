@@ -12,11 +12,11 @@
         name: Door
       0b1100060163e70201010f70:
         name: Stefans fläkt
-      09130000a96601013e70:
-        name: White1
-      0a1411010082c908000070:
-        name: White2
-        fire_event: true
+      # 09130000a96601013e70:
+      #   name: White1
+      # 0a1411010082c908000070:
+      #   name: White2
+      #   fire_event: true
       0b1100000009a25202010f60:
         name: Bedroom light switch
         fire_event: true

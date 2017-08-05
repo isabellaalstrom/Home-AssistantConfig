@@ -8,6 +8,10 @@ info_card:
   - sensor.back_door
   - sensor.nexa_door
   - sensor.dining_area_window
+  - sensor.passage_movement
+  - sensor.passage_pir_luminance
+  - sensor.upstairs_hallway_movement
+  - sensor.upstairs_hallway_pir_luminance
   - sensor.vacuumed_today
   - sensor.motion_sensor
   - switch.stefan_on_air

@@ -1,7 +1,7 @@
 - alias: Send alert when washing machine is finished
   trigger:
     - platform: state
-      entity_id: sensor.washing_machine_status
+      entity_id: input_select.washing_machine_status
       to: Clean
       for:
         minutes: 1
@@ -9,20 +9,20 @@
       entity_id: device_tracker.isabellas_iphone_6s
       to: 'home'
       for:
-        minutes: 2
+        minutes: 10
     - platform: state
       entity_id: device_tracker.stefan_iphone_7
       to: 'home'
       for:
-        minutes: 2
+        minutes: 10
     - platform: time
       at: '08:45:00'
   condition:
     condition: and
     conditions:
-      - condition: time
-        before: '23:00:00'
-        after: '08:00:00'
+      # - condition: time
+      #   before: '23:00:00'
+      #   after: '08:00:00'
       - condition: state
         entity_id: group.persons
         state: 'home'

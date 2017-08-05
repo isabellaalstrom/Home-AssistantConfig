@@ -3,6 +3,8 @@
       platform: state
       entity_id: device_tracker.isabellas_iphone_6s
       to: 'home'
+      for:
+        minutes: 10
     condition:
       condition: numeric_state
       entity_id: sensor.monstera_moisture
@@ -18,6 +20,8 @@
       platform: state
       entity_id: device_tracker.isabellas_iphone_6s
       to: 'home'
+      for:
+        minutes: 10
     condition:
       condition: numeric_state
       entity_id: sensor.palm_moisture

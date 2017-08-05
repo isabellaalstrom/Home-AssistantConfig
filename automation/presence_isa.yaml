@@ -34,14 +34,14 @@
         title: 'Du är nu rapporterad som hemma.'
         message: 'Hemma'
 
-- alias: Isa zone home test
-  trigger:
-    - platform: zone
-      entity_id: device_tracker.isabellas_iphone_6s
-      zone: zone.home
-      event: enter
-  action:
-    - service: notify.ios_isabellas_iphone_6s
-      data:
-        title: 'Zone:'
-        message: 'Home'
+# - alias: Isa zone home test
+#   trigger:
+#     - platform: zone
+#       entity_id: device_tracker.isabellas_iphone_6s
+#       zone: zone.home
+#       event: enter
+#   action:
+#     - service: notify.ios_isabellas_iphone_6s
+#       data:
+#         title: 'Zone:'
+#         message: 'Home'

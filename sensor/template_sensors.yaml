@@ -102,12 +102,13 @@
       #########################################
       front_door:
         friendly_name: 'Front Door'
-        value_template: '{% if is_state("sensor.sensative_access_control", "22") %}Open{% else %}Closed{% endif %}'
-        icon_template: '{% if is_state("sensor.sensative_access_control", "22") %}mdi:login{% else %}mdi:page-layout-sidebar-right{% endif %}'
+        value_template: '{% if is_state("sensor.front_door_access_control", "22") %}Open{% else %}Closed{% endif %}'
+        icon_template: '{% if is_state("sensor.front_door_access_control", "22") %}mdi:login{% else %}mdi:page-layout-sidebar-right{% endif %}'
+
       sensative_door_battery:
         friendly_name: 'Sensative Door Battery'
         value_template: '{% if states.zwave.sensative %}
-          {{ states.zwave.sensative.attributes.battery_level }}
+          {{ states.zwave.front_door.attributes.battery_level }}
         {% else %}
           n/a
         {% endif %}'
@@ -136,3 +137,17 @@
       washer:
         friendly_name: Washer state
         value_template: "{{ states('sensor.washer_plug_power') | int < 3.4 }}"
+
+
+      #########################################
+      ######              PIRS           ######
+      #########################################
+      passage_movement:
+        friendly_name: 'Passage Movement'
+        value_template: '{% if is_state("binary_sensor.passage_pir_sensor", "on") %}Movement detected{% else %}No movement{% endif %}'
+        icon_template: '{% if is_state("binary_sensor.passage_pir_sensor", "on") %}mdi:run-fast{% else %}mdi:sleep{% endif %}'
+
+      upstairs_hallway_movement:
+        friendly_name: 'Upstairs Hallway Movement'
+        value_template: '{% if is_state("binary_sensor.upstairs_hallway_pir_sensor", "on") %}Movement detected{% else %}No movement{% endif %}'
+        icon_template: '{% if is_state("binary_sensor.upstairs_hallway_pir_sensor", "on") %}mdi:run-fast{% else %}mdi:sleep{% endif %}'
