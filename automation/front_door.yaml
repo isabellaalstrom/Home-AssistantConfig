@@ -5,6 +5,10 @@
       entity_id: sensor.front_door
       to: 'Open'
             ## add condition for not_home or alarm on
+    condition:
+      condition: state
+      entity_id: group.persons
+      state: 'not_home'
     action:
       - service: homeassistant.turn_on
         entity_id: input_boolean.front_door
@@ -31,6 +35,10 @@
       entity_id: sensor.front_door
       from: 'Open'
       to: 'Closed'
+    condition:
+      condition: state
+      entity_id: group.persons
+      state: 'not_home'
     action:
       - service: notify.ios_isabellas_iphone_6s
         data:

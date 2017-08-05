@@ -29,7 +29,7 @@
       ## Bedroom light has to be off
       - condition: state
         entity_id: light.isa_ceiling_lamp
-        state: off
+        state: 'off'
 
       ## All computers off (not reliable, due to sometimes leaving on, how to fix?)
       - condition: state
@@ -72,13 +72,13 @@
           state: idle
         - condition: state
           entity_id: media_player.plex_shield
-          state: off
+          state: 'off'
         - condition: state
           entity_id: media_player.shield
           state: idle
         - condition: state
           entity_id: media_player.shield
-          state: off
+          state: 'off'
         - condition: state
           entity_id: sensor.shield
           state: Offline

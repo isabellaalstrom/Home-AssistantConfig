@@ -6,3 +6,4 @@ test_group:
     - input_boolean.washer_in_use
     - sensor.fibaro_plug_energy
     - sensor.fibaro_plug_power
+    - switch.air_cleaner_quiet
