@@ -25,3 +25,24 @@
       data:
         title: 'Stefan är nu rapporterad som hemma.'
         message: 'Hemma'
+
+- alias: Force Check Stefan Location Home
+  trigger:
+    - platform: state
+      entity_id: sensor.front_door
+      to: 'Open'
+  action:
+  - service: notify.ios_stefan_iphone_7
+    data:
+      message: "request_location_update"
+
+- alias: Force Check Stefan Location Away
+  trigger:
+    - platform: state
+      entity_id: sensor.front_door
+      to: 'Open'
+  action:
+  - delay: '00:10:00'
+  - service: notify.ios_stefan_iphone_7
+    data:
+      message: "request_location_update"

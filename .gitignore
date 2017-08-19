@@ -7,6 +7,7 @@ www
 OZW_Log.txt
 home-assistant.log
 home-assistant_v2.db
+home-assistant_v2_old.db
 google_calendars.yaml
 *.db-journal
 lib
@@ -24,3 +25,4 @@ harmony_media_room.conf
 pyozw.sqlite
 .*
 !/.gitignore
+!/zwcfg_0xca115759.xml

@@ -15,9 +15,9 @@ updater:
 # discovery:
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
-# history:
+history:
 recorder:
-  purge_days: 1
+  purge_days: 7
 ios:
   push:
     categories:
