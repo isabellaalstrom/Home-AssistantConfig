@@ -16,13 +16,13 @@
       for:
         minutes: 10
     - platform: time
-      at: '08:45:00'
+      at: '08:01:00'
   condition:
     condition: and
     conditions:
-      # - condition: time
-      #   before: '23:00:00'
-      #   after: '08:00:00'
+      - condition: time
+        before: '23:00:00'
+        after: '08:00:00'
       - condition: state
         entity_id: group.persons
         state: 'home'
@@ -38,15 +38,15 @@
           false
           {% endif %}
   action:
-    - service: notify.ios_isabellas_iphone_6s
-    # - service_template: >
-    #     {% if (is_state('device_tracker.isabellas_iphone_6s', 'home')) and (is_state('device_tracker.stefan_iphone_7', 'home'))  %}
-    #       notify.all
-    #     {% elif is_state('device_tracker.isabellas_iphone_6s', 'home') %}
-    #       notify.ios_isabellas_iphone_6s
-    #     {% elif is_state('device_tracker.stefan_iphone_7', 'home') %}
-    #       notify.ios_stefan_iphone_7
-    #     {% endif %}
+    # - service: notify.ios_isabellas_iphone_6s
+    - service_template: >
+        {% if (is_state('device_tracker.isabellas_iphone_6s', 'home')) and (is_state('device_tracker.stefan_iphone_7', 'home'))  %}
+          notify.all
+        {% elif is_state('device_tracker.isabellas_iphone_6s', 'home') %}
+          notify.ios_isabellas_iphone_6s
+        {% elif is_state('device_tracker.stefan_iphone_7', 'home') %}
+          notify.ios_stefan_iphone_7
+        {% endif %}
       data:
         message: 'Take care of it now?'
         title: 'Washing machine is done!'
@@ -78,16 +78,16 @@
     event_data:
       actionName: WASHER_NOT_EMPTIED
   action:
-    - delay: 0:10
-    - service: notify.ios_isabellas_iphone_6s
-    # - service_template: >
-    #     {% if (is_state('device_tracker.isabellas_iphone_6s', 'home')) and (is_state('device_tracker.stefan_iphone_7', 'home'))  %}
-    #       notify.all
-    #     {% elif is_state('device_tracker.isabellas_iphone_6s', 'home') %}
-    #       notify.ios_isabellas_iphone_6s
-    #     {% elif is_state('device_tracker.stefan_iphone_7', 'home') %}
-    #       notify.ios_stefan_iphone_7
-    #     {% endif %}
+    - delay: 0:30
+    # - service: notify.ios_isabellas_iphone_6s
+    - service_template: >
+        {% if (is_state('device_tracker.isabellas_iphone_6s', 'home')) and (is_state('device_tracker.stefan_iphone_7', 'home'))  %}
+          notify.all
+        {% elif is_state('device_tracker.isabellas_iphone_6s', 'home') %}
+          notify.ios_isabellas_iphone_6s
+        {% elif is_state('device_tracker.stefan_iphone_7', 'home') %}
+          notify.ios_stefan_iphone_7
+        {% endif %}
       data:
         message: 'Take care of it now?'
         title: 'Washing machine is done!'

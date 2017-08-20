@@ -32,17 +32,23 @@
       entity_id: sensor.front_door
       to: 'Open'
   action:
+  # Catch home
+  - service: notify.ios_stefan_iphone_7
+    data:
+      message: "request_location_update"
+  - delay: '00:10:00'
+  # catch not_home
   - service: notify.ios_stefan_iphone_7
     data:
       message: "request_location_update"
 
-- alias: Force Check Stefan Location Away
-  trigger:
-    - platform: state
-      entity_id: sensor.front_door
-      to: 'Open'
-  action:
-  - delay: '00:10:00'
-  - service: notify.ios_stefan_iphone_7
-    data:
-      message: "request_location_update"
+# - alias: Force Check Stefan Location Away
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.front_door
+#       to: 'Open'
+#   action:
+#   - delay: '00:10:00'
+#   - service: notify.ios_stefan_iphone_7
+#     data:
+#       message: "request_location_update"

@@ -20,12 +20,12 @@
         entity_id: group.persons
         state: 'home'
       ## No movement detected
-      - condition: state
-        entity_id: sensor.upstairs_hallway_movement
-        state: 'No movement'
-      - condition: state
-        entity_id: sensor.passage_movement
-        state: 'No movement'
+      # - condition: state
+      #   entity_id: sensor.upstairs_hallway_movement
+      #   state: 'No movement'
+      # - condition: state
+      #   entity_id: sensor.passage_movement
+      #   state: 'No movement'
       ## Bedroom light has to be off
       - condition: state
         entity_id: light.isa_ceiling_lamp
@@ -42,49 +42,47 @@
         entity_id: sensor.stefan_computer
         state: Offline
 
-      - condition: state
-        entity_id: sensor.isabellas_iphone_6s_battery_state
-        state: Charging
-        ## fel namn?
-      - condition: state
-        entity_id: sensor.igrims_battery_state
-        state: Charging
+      # - condition: state
+      #   entity_id: sensor.isabellas_iphone_6s_battery_state
+      #   state: Charging
+      #   ## fel namn?
+      # - condition: state
+      #   entity_id: sensor.igrims_battery_state
+      #   state: Charging
 
-      ##STEFAN MOBIL LADDAR LÄGG TILL
-
-      ## Tv-system bottenvåning avstängt
-      ## group.media_player_view?
-      - condition: state
-        entity_id: sensor.movie_system
-        state: Offline
-      - condition: state
-        entity_id: sensor.samsung65
-        state: Offline
-      ## Tv sovrum avstängd
-      - condition: state
-        entity_id: sensor.samsung49
-        state: Offline
-        ## försöker täcka alla olika states för shield
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: media_player.plex_shield
-          state: idle
-        - condition: state
-          entity_id: media_player.plex_shield
-          state: 'off'
-        - condition: state
-          entity_id: media_player.shield
-          state: idle
-        - condition: state
-          entity_id: media_player.shield
-          state: 'off'
-        - condition: state
-          entity_id: sensor.shield
-          state: Offline
-        - condition: state
-          entity_id: sensor.shield_2
-          state: Offline
+      # ## Tv-system bottenvåning avstängt
+      # ## group.media_player_view?
+      # - condition: state
+      #   entity_id: sensor.movie_system
+      #   state: Offline
+      # - condition: state
+      #   entity_id: sensor.samsung65
+      #   state: Offline
+      # ## Tv sovrum avstängd
+      # - condition: state
+      #   entity_id: sensor.samsung49
+      #   state: Offline
+      #   ## försöker täcka alla olika states för shield
+      # - condition: or
+      #   conditions:
+      #   - condition: state
+      #     entity_id: media_player.plex_shield
+      #     state: idle
+      #   - condition: state
+      #     entity_id: media_player.plex_shield
+      #     state: 'off'
+      #   - condition: state
+      #     entity_id: media_player.shield
+      #     state: idle
+      #   - condition: state
+      #     entity_id: media_player.shield
+      #     state: 'off'
+      #   - condition: state
+      #     entity_id: sensor.shield
+      #     state: Offline
+      #   - condition: state
+      #     entity_id: sensor.shield_2
+      #     state: Offline
 
   action:
     - service: notify.ios_isabellas_iphone_6s

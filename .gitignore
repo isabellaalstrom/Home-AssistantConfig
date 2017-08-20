@@ -8,6 +8,8 @@ OZW_Log.txt
 home-assistant.log
 home-assistant_v2.db
 home-assistant_v2_old.db
+home-assistant_v2.db-wal
+home-assistant_v2.db-shm
 google_calendars.yaml
 *.db-journal
 lib

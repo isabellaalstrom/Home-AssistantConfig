@@ -11,7 +11,7 @@
   action:
     - service: input_select.select_option
       data:
-        entity_id: input_select.house_mode
+        entity_id: input_select.day_mode
         option: Evening
     # - service: notify.pushbullet_isa
     #   data_template: 
@@ -30,7 +30,7 @@
   action:
     - service: input_select.select_option
       data:
-        entity_id: input_select.house_mode
+        entity_id: input_select.day_mode
         option: Morning
     # - service: notify.pushbullet_isa
     #   data_template: 
@@ -49,7 +49,7 @@
   action:
     - service: input_select.select_option
       data:
-        entity_id: input_select.house_mode
+        entity_id: input_select.day_mode
         option: Day
     # - service: notify.pushbullet_isa
     #   data: 

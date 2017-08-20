@@ -5,15 +5,15 @@
     entity_id: sensor.washer
     from: 'True'
     to: 'False'
-  condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: sensor.washing_machine_status
-        state: Idle
-      - condition: state
-        entity_id: sensor.washing_machine_status
-        state: Clean
+  # condition:
+  #   condition: or
+  #   conditions:
+  #     - condition: state
+  #       entity_id: sensor.washing_machine_status
+  #       state: Idle
+  #     - condition: state
+  #       entity_id: sensor.washing_machine_status
+  #       state: Clean
   action:
     - service: input_select.select_option
       data:

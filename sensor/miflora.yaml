@@ -9,7 +9,7 @@
       - temperature
       - light
       - moisture
-      - conductivity
+      # - conductivity
       - battery
   - platform: miflora
     mac: "C4:7C:8D:63:13:9B"
@@ -21,5 +21,5 @@
       - temperature
       - light
       - moisture
-      - conductivity
+      # - conductivity
       - battery
