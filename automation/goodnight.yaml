@@ -50,18 +50,18 @@
       #   entity_id: sensor.igrims_battery_state
       #   state: Charging
 
-      # ## Tv-system bottenvåning avstängt
-      # ## group.media_player_view?
-      # - condition: state
-      #   entity_id: sensor.movie_system
-      #   state: Offline
-      # - condition: state
-      #   entity_id: sensor.samsung65
-      #   state: Offline
-      # ## Tv sovrum avstängd
-      # - condition: state
-      #   entity_id: sensor.samsung49
-      #   state: Offline
+      ## Tv-system bottenvåning avstängt
+      ## group.media_player_view?
+      - condition: state
+        entity_id: sensor.movie_system
+        state: Offline
+      - condition: state
+        entity_id: sensor.samsung65
+        state: Offline
+      ## Tv sovrum avstängd
+      - condition: state
+        entity_id: sensor.samsung49
+        state: Offline
       #   ## försöker täcka alla olika states för shield
       # - condition: or
       #   conditions:

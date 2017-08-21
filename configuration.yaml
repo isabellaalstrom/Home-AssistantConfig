@@ -7,6 +7,7 @@ homeassistant:
   time_zone: !secret time_zone
   customize: !include_dir_merge_named customize
   customize_glob: !include customglob.yaml
+  packages: !include_dir_named packages
 #introduction:
 
 frontend:
@@ -159,14 +160,14 @@ binary_sensor:
   - platform: rfxtrx
     automatic_add: True
 
-  - platform: mqtt
-    name: "Upstairs Litter Box Pir"
-    state_topic: "UpstairsLitterBox/pir/state"
-    command_topic: "UpstairsLitterBox/gpio/14"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
+  # - platform: mqtt
+  #   name: "Upstairs Litter Box Pir"
+  #   state_topic: "UpstairsLitterBox/pir/state"
+  #   command_topic: "UpstairsLitterBox/gpio/14"
+  #   payload_on: "1"
+  #   payload_off: "0"
+  #   optimistic: false
+  #   qos: 0
 light:
   - platform: rfxtrx
     automatic_add: true
