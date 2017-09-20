@@ -22,4 +22,5 @@ logs:
   homeassistant.helpers.entity: error
   homeassistant.components.ffmpeg: debug
   homeassistant.components.ffmpeg_motion: debug
+  homeassistant.components.xiaomi: warning
   root: warn

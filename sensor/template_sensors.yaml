@@ -92,38 +92,38 @@
         friendly_name: 'Litter Box Upstairs'
         value_template: '{% if is_state("switch.motion_sensor", "on") %}Occupied{% else %}Not in use{% endif %}'
         icon_template: '{% if is_state("switch.motion_sensor", "on") %}mdi:cat{% else %}mdi:application{% endif %}'
-      nexa_door:
-        friendly_name: 'Backyard Storage Door'
-        value_template: '{% if is_state("switch.door", "on") %}Open{% else %}Closed{% endif %}'
-        icon_template: '{% if is_state("switch.door", "on") %}mdi:login{% else %}mdi:page-layout-sidebar-right{% endif %}'
+      # nexa_door:
+      #   friendly_name: 'Backyard Storage Door'
+      #   value_template: '{% if is_state("switch.door", "on") %}Open{% else %}Closed{% endif %}'
+      #   icon_template: '{% if is_state("switch.door", "on") %}mdi:login{% else %}mdi:page-layout-sidebar-right{% endif %}'
 
       #########################################
       ######         ZWAVE SWITCHES      ######
       #########################################
-      front_door:
-        friendly_name: 'Front Door'
-        value_template: '{% if is_state("sensor.front_door_access_control", "22") %}Open{% else %}Closed{% endif %}'
-        icon_template: '{% if is_state("sensor.front_door_access_control", "22") %}mdi:login{% else %}mdi:page-layout-sidebar-right{% endif %}'
+      # front_door:
+      #   friendly_name: 'Front Door'
+      #   value_template: '{% if is_state("sensor.front_door_access_control", "22") %}Open{% else %}Closed{% endif %}'
+      #   icon_template: '{% if is_state("sensor.front_door_access_control", "22") %}mdi:login{% else %}mdi:page-layout-sidebar-right{% endif %}'
 
-      sensative_door_battery:
-        friendly_name: 'Sensative Door Battery'
-        value_template: '{% if states.zwave.sensative %}
-          {{ states.zwave.front_door.attributes.battery_level }}
-        {% else %}
-          n/a
-        {% endif %}'
-        unit_of_measurement: '%'
-        entity_id: zwave.sensative
+      # sensative_door_battery:
+      #   friendly_name: 'Sensative Door Battery'
+      #   value_template: '{% if states.zwave.sensative %}
+      #     {{ states.zwave.front_door.attributes.battery_level }}
+      #   {% else %}
+      #     n/a
+      #   {% endif %}'
+      #   unit_of_measurement: '%'
+      #   entity_id: zwave.sensative
 
       dining_area_window:
         friendly_name: 'Dining area window'
         value_template: '{% if is_state("binary_sensor.dining_area_window_sensor_sensor", "on") %}Open{% else %}Closed{% endif %}'
         icon_template: '{% if is_state("binary_sensor.dining_area_window_sensor_sensor", "on") %}mdi:window-open{% else %}mdi:window-closed{% endif %}'
       
-      back_door:
-        friendly_name: 'Back Door'
-        value_template: '{% if is_state("binary_sensor.back_door_sensor", "on") %}Open{% else %}Closed{% endif %}'
-        icon_template: '{% if is_state("binary_sensor.back_door_sensor", "on") %}mdi:message-alert{% else %}mdi:page-layout-sidebar-right{% endif %}'
+      # back_door:
+      #   friendly_name: 'Back Door'
+      #   value_template: '{% if is_state("binary_sensor.back_door_sensor", "on") %}Open{% else %}Closed{% endif %}'
+      #   icon_template: '{% if is_state("binary_sensor.back_door_sensor", "on") %}mdi:message-alert{% else %}mdi:page-layout-sidebar-right{% endif %}'
 
       #########################################
       ######         OTHER SWITCHES      ######

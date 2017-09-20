@@ -14,7 +14,7 @@
      - Guest mode
      - Cleaning day
      - Shell protection
-     - Alarmed
+     - Armed
      - Unarmed
     initial: Unarmed
     icon: mdi:house

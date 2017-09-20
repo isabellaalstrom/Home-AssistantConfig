@@ -30,6 +30,9 @@
       - condition: state
         entity_id: light.isa_ceiling_lamp
         state: 'off'
+      - condition: state
+        entity_id: input_select.day_mode
+        state: Evening
 
       ## All computers off (not reliable, due to sometimes leaving on, how to fix?)
       - condition: state
@@ -89,7 +92,7 @@
       data:
         message: 'It seems like everyone is asleep'
         title: 'Good night!'
-        # data:
-        #   push:
-        #     badge: 0
-        #     category: "GOODNIGHT"
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.day_mode
+        option: Night

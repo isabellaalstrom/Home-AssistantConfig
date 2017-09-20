@@ -12,4 +12,5 @@ default_view:
     - group.outside_lights_card
     - group.camera_card
     - input_select.house_mode
+    - input_select.day_mode    
     - group.test_group

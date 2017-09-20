@@ -7,54 +7,54 @@ homeassistant:
 
 #-------------------------------------------
 
-switch:
-  - platform: mqtt
-    name: "UpstairsLitterBox"
-    state_topic: "UpstairsLitterBox/Button/state"
-    command_topic: "UpstairsLitterBox/gpio/13"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
+# switch:
+#   - platform: mqtt
+#     name: "UpstairsLitterBox"
+#     state_topic: "UpstairsLitterBox/Button/state"
+#     command_topic: "UpstairsLitterBox/gpio/13"
+#     payload_on: "1"
+#     payload_off: "0"
+#     optimistic: false
+#     qos: 0
 
-  - platform: mqtt
-    name: "UpstairsLitterBoxBlueLed"
-    state_topic: "UpstairsLitterBox/blueled/state"
-    command_topic: "UpstairsLitterBox/gpio/15"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
+#   - platform: mqtt
+#     name: "UpstairsLitterBoxBlueLed"
+#     state_topic: "UpstairsLitterBox/blueled/state"
+#     command_topic: "UpstairsLitterBox/gpio/15"
+#     payload_on: "1"
+#     payload_off: "0"
+#     optimistic: false
+#     qos: 0
 
-  - platform: mqtt
-    name: "UpstairsLitterBoxGreenLed"
-    state_topic: "UpstairsLitterBox/greenled/state"
-    command_topic: "UpstairsLitterBox/gpio/12"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
+#   - platform: mqtt
+#     name: "UpstairsLitterBoxGreenLed"
+#     state_topic: "UpstairsLitterBox/greenled/state"
+#     command_topic: "UpstairsLitterBox/gpio/12"
+#     payload_on: "1"
+#     payload_off: "0"
+#     optimistic: false
+#     qos: 0
 
-  - platform: mqtt
-    name: "UpstairsLitterBoxRedLed"
-    state_topic: "UpstairsLitterBox/redled/state"
-    command_topic: "UpstairsLitterBox/gpio/02"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
+#   - platform: mqtt
+#     name: "UpstairsLitterBoxRedLed"
+#     state_topic: "UpstairsLitterBox/redled/state"
+#     command_topic: "UpstairsLitterBox/gpio/02"
+#     payload_on: "1"
+#     payload_off: "0"
+#     optimistic: false
+#     qos: 0
 
-#-------------------------------------------
+# #-------------------------------------------
 
-binary_sensor:
-  - platform: mqtt
-    name: "Upstairs Litter Box Pir"
-    state_topic: "UpstairsLitterBox/pir/state"
-    command_topic: "UpstairsLitterBox/gpio/14"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
+# binary_sensor:
+#   - platform: mqtt
+#     name: "Upstairs Litter Box Pir"
+#     state_topic: "UpstairsLitterBox/pir/state"
+#     command_topic: "UpstairsLitterBox/gpio/14"
+#     payload_on: "1"
+#     payload_off: "0"
+#     optimistic: false
+#     qos: 0
 
 #-------------------------------------------
 
@@ -78,7 +78,8 @@ automation:
   - alias: Count visits to upstairs litter box
     trigger:
       - platform: state
-        entity_id: binary_sensor.upstairs_litter_box_pir
+        # entity_id: binary_sensor.upstairs_litter_box_pir
+        entity_id: binary_sensor.upstairs_litterbox
         to: 'on'
     condition:
     - condition: template
@@ -91,11 +92,11 @@ automation:
         {% endif %}
     action:
       - service: python_script.ulitter_counter
-      - service: homeassistant.turn_on
-        entity_id: switch.upstairslitterboxblueled
-      - delay: '00:00:30'
-      - service: homeassistant.turn_off
-        entity_id: switch.upstairslitterboxblueled
+      # - service: homeassistant.turn_on
+      #   entity_id: switch.upstairslitterboxblueled
+      # - delay: '00:00:30'
+      # - service: homeassistant.turn_off
+      #   entity_id: switch.upstairslitterboxblueled
 
 
   - alias: Send notification when upstairs litter box is used more than three times
@@ -121,8 +122,8 @@ automation:
           entity_id: sensor.upstairs_litter_box_visits
           above: '2'
     action:
-      - service: homeassistant.turn_on
-        entity_id: switch.upstairslitterboxredled
+      # - service: homeassistant.turn_on
+      #   entity_id: switch.upstairslitterboxredled
       - service: notify.ios_isabellas_iphone_6s
         data:
           title: 'Time to clean!'
@@ -135,13 +136,14 @@ automation:
   - alias: Reset litter box visit counter
     trigger:
       - platform: state
-        entity_id: switch.upstairslitterbox
+        # entity_id: switch.upstairslitterbox
+        entity_id: binary_sensor.white3
     action:
       - service: python_script.ulitter_reset
-      - service: homeassistant.turn_off
-        entity_id: switch.upstairslitterboxredled
-      - service: homeassistant.turn_on
-        entity_id: switch.upstairslitterboxgreenled
-      - delay: '00:00:05'
-      - service: homeassistant.turn_off
-        entity_id: switch.upstairslitterboxgreenled
+      # - service: homeassistant.turn_off
+      #   entity_id: switch.upstairslitterboxredled
+      # - service: homeassistant.turn_on
+      #   entity_id: switch.upstairslitterboxgreenled
+      # - delay: '00:00:05'
+      # - service: homeassistant.turn_off
+      #   entity_id: switch.upstairslitterboxgreenled

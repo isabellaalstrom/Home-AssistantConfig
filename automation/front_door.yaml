@@ -1,46 +1,33 @@
 ## notify when door opened (replace with alert) and set input_boolean.front_door to on to allow for presence automations
-  - alias: Front door opened
-    trigger:
-      platform: state
-      entity_id: sensor.front_door
-      to: 'Open'
-            ## add condition for not_home or alarm on
-    condition:
-      condition: state
-      entity_id: group.persons
-      state: 'not_home'
-    action:
-      - service: homeassistant.turn_on
-        entity_id: input_boolean.front_door
-      - service: notify.ios_isabellas_iphone_6s
-        data:
-          title: 'Ytterdörren är öppen'
-          message: 'Öppet!'
+#   - alias: Front door opened
+#     trigger:
+#       platform: state
+#       entity_id: sensor.front_door
+#       to: 'Open'
+#             ## add condition for not_home or alarm on
+#     condition:
+#       condition: state
+#       entity_id: group.persons
+#       state: 'not_home'
+#     action:
+#       - service: notify.ios_isabellas_iphone_6s
+#         data:
+#           title: 'Ytterdörren är öppen'
+#           message: 'Öppet!'
 
-##have input_boolean.front_door be on for 20 minutes to allow presence detection to trigger
-  - alias: Door input boolean delay
-    trigger:
-      platform: state
-      entity_id: input_boolean.front_door
-      to: 'on'
-    action:
-      - delay: 0:20
-      - service: homeassistant.turn_off
-        entity_id: input_boolean.front_door
-
-## notify when door closed (replace with alert for door open)
-  - alias: Front door closed
-    trigger:
-      platform: state
-      entity_id: sensor.front_door
-      from: 'Open'
-      to: 'Closed'
-    condition:
-      condition: state
-      entity_id: group.persons
-      state: 'not_home'
-    action:
-      - service: notify.ios_isabellas_iphone_6s
-        data:
-          title: 'Ytterdörren är stängd'
-          message: 'Stängt!'
+# ## notify when door closed (replace with alert for door open)
+#   - alias: Front door closed
+#     trigger:
+#       platform: state
+#       entity_id: sensor.front_door
+#       from: 'Open'
+#       to: 'Closed'
+#     condition:
+#       condition: state
+#       entity_id: group.persons
+#       state: 'not_home'
+#     action:
+#       - service: notify.ios_isabellas_iphone_6s
+#         data:
+#           title: 'Ytterdörren är stängd'
+#           message: 'Stängt!'

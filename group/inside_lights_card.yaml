@@ -8,3 +8,4 @@ inside_lights_card:
     - light.dining_area_ceiling_light_level
     - light.passage_ceiling_spotlights_level
     - light.isa_ceiling_lamp
+    - light.gateway_light_34ce008bfc4b
